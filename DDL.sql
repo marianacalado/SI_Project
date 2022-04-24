@@ -1,4 +1,3 @@
-
 PRAGMA foreign_keys = ON;
 .headers on --aparece de forma bonita
 .mode columns --aparece de forma bonita
