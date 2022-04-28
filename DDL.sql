@@ -1,6 +1,6 @@
-PRAGMA foreign_keys = ON;
-.headers on --aparece de forma bonita
-.mode columns --aparece de forma bonita
+RAGMA foreign_keys = ON;
+.headers on 
+.mode columns 
 .nullvalue NULL
 
 --Employee   
@@ -58,7 +58,7 @@ DROP TABLE IF EXISTS SupProduct;
 CREATE TABLE SupProduct(
     suplier_id INTEGER REFERENCES Suplier,
     product_id INTEGER REFERENCES Product,
-    quantity INTEGER NOT NULL, --CHECK??
+    quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0), 
     PRIMARY KEY (suplier_id, product_id)
 );
 
@@ -77,7 +77,7 @@ DROP TABLE IF EXISTS OrdersProduct;
 CREATE TABLE OrdersProduct(
     order_id INTEGER REFERENCES Orders,
     product_id INTEGER REFERENCES Product,
-    quantity INTEGER NOT NULL, --CHECK??
+    quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0), 
     PRIMARY KEY (order_id, product_id)
 );
 
@@ -101,13 +101,14 @@ CREATE TABLE Prescription (
     id_prescription INTEGER PRIMARY KEY,
     doct_name TEXT NOT NULL,
     benf_name TEXT NOT NULL,
-    product_id INTEGER NOT NULL REFERENCES Product --VAI SER MUDADO
+    product_id INTEGER NOT NULL REFERENCES Product,
+    order_id INTEGER NOT NULL REFERENCES Orders
 );
 
-DROP TABLE IF EXISTS OrderPrescription;
+--DROP TABLE IF EXISTS OrderPrescription;
 
-CREATE TABLE OrderPrescription (
-    order_id INTEGER REFERENCES Orders,
-    prescription_id INTEGER REFERENCES Prescription,
-    quantity INTEGER NOT NULL -- CHECK
-);
+-- CREATE TABLE OrderPrescription (
+--     order_id INTEGER REFERENCES Orders,
+--     prescription_id INTEGER REFERENCES Prescription,
+--     quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0)
+-- );
