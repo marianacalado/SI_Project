@@ -112,3 +112,5 @@ CREATE TABLE Prescription (
 --     prescription_id INTEGER REFERENCES Prescription,
 --     quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0)
 -- );
+
+--olá (TESTE)
