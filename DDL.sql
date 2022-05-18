@@ -1,4 +1,4 @@
-RAGMA foreign_keys = ON;
+PRAGMA foreign_keys = ON;
 .headers on 
 .mode columns 
 .nullvalue NULL
@@ -11,7 +11,7 @@ CREATE TABLE Employee(
     name TEXT NOT NULL,
     phone_num INTEGER NOT NULL UNIQUE,
     e_mail TEXT NOT NULL UNIQUE,
-    adress TEXT,
+    address TEXT,
     password TEXT NOT NULL
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE Customer(
     name TEXT NOT NULL,
     phone_num INTEGER NOT NULL UNIQUE,
     e_mail TEXT NOT NULL UNIQUE,
-    adress TEXT NOT NULL,
+    address TEXT NOT NULL,
     city TEXT NOT NULL,
     password TEXT NOT NULL,
     VAT_num INTEGER NOT NULL UNIQUE
@@ -37,7 +37,7 @@ CREATE TABLE Suplier(
     name TEXT NOT NULL,
     phone_num INTEGER NOT NULL UNIQUE,
     e_mail TEXT NOT NULL UNIQUE,
-    adress TEXT 
+    address TEXT 
 );
 
 --Product
@@ -62,6 +62,7 @@ CREATE TABLE SupProduct(
     PRIMARY KEY (suplier_id, product_id)
 );
 
+--Orders
 DROP TABLE IF EXISTS Orders;
 
 CREATE TABLE Orders(
@@ -72,6 +73,7 @@ CREATE TABLE Orders(
     employee_id INTEGER NOT NULL REFERENCES Employee
 );
 
+--OrdersProduct
 DROP TABLE IF EXISTS OrdersProduct;
 
 CREATE TABLE OrdersProduct(
@@ -81,6 +83,7 @@ CREATE TABLE OrdersProduct(
     PRIMARY KEY (order_id, product_id)
 );
 
+--Category
 DROP TABLE IF EXISTS Category;
 
 CREATE TABLE Category(
@@ -88,6 +91,7 @@ CREATE TABLE Category(
     name TEXT NOT NULL
 );
 
+--Brand
 DROP TABLE IF EXISTS Brand;
 
 CREATE TABLE Brand(
@@ -95,6 +99,7 @@ CREATE TABLE Brand(
     name TEXT NOT NULL
 );
 
+--Prescription
 DROP TABLE IF EXISTS Prescription;
 
 CREATE TABLE Prescription (
@@ -105,12 +110,27 @@ CREATE TABLE Prescription (
     order_id INTEGER NOT NULL REFERENCES Orders
 );
 
---DROP TABLE IF EXISTS OrderPrescription;
 
--- CREATE TABLE OrderPrescription (
---     order_id INTEGER REFERENCES Orders,
---     prescription_id INTEGER REFERENCES Prescription,
---     quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0)
--- );
+--Inserts---------------------------------------------------
+-- Employee   
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password) VALUES (1, 'Mariana Calado', 912345678,'up202003072@fe.up.pt', 'Rua Aurélia de Sousa','4f31a719805c7ad9124289beb4abc44ed47b3c8b');--Password é "123456789"
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password) VALUES (2, 'Susana Teixeira', 912345679, 'up202103376@fe.up.pt', 'Rua Roberto Matias','f7c3bc1d808e04732adf679965ccc34ca7ae3441');--Password é "123456788"
 
---olá (TESTE)
+--Customer   
+INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num) VALUES (1, 'Roberto Carlos', 912345671,'roberto1@gmail.pt', 'Porto','Rua alma Girvo','4f31a719805c7ad9124289beb4abc44ed47b3c88', 265667674);--Password é "roberto_bolo1"
+INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num) VALUES (2, 'Ana Martins', 912345672,'ana_martins@gmail.pt', 'Lisboa', 'Rua da Lagoa','4f31a719805c7ad9124289beb4abc44ed47b3c89', 265667675);--Password é "martina_123"
+
+--Suplier
+INSERT INTO Suplier (id_suplier, name, phone_num, e_mail, address) VALUES (1, 'Alconox', 9149484040,'alconoxinfo@gmail.pt', '30 Glenn Street, Suite 309 White Plains 10603 New York United States of America');
+INSERT INTO Suplier (id_suplier, name, phone_num, e_mail, address) VALUES (2, 'Berkshire Corporation', 902427000,'BerkshireCorpinfo@gmail.pt', '21 River Street Great Barrington 01230 Massachusetts United States of America');
+
+-- TESTE What are the names and locations of all costumers? (name, city)
+SELECT name, city FROM Customer; --selecionar as colunas (name, city) da tabela 
+
+--Product
+--SupProduct
+--Orders
+--OrdersProduct
+--Category
+--Brand
+--Prescription
