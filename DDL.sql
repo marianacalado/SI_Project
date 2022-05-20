@@ -12,7 +12,8 @@ CREATE TABLE Employee(
     phone_num INTEGER NOT NULL UNIQUE,
     e_mail TEXT NOT NULL UNIQUE,
     address TEXT,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    role TEXT NOT NULL
 );
 
 --Customer   
@@ -26,7 +27,8 @@ CREATE TABLE Customer(
     address TEXT NOT NULL,
     city TEXT NOT NULL,
     password TEXT NOT NULL,
-    VAT_num INTEGER NOT NULL UNIQUE
+    VAT_num INTEGER NOT NULL UNIQUE,
+    role TEXT NOT NULL
 );
 
 --Suplier
@@ -70,7 +72,8 @@ CREATE TABLE Orders(
     date TEXT NOT NULL,
     delv_address TEXT NOT NULL,
     customer_id INTEGER NOT NULL REFERENCES Customer,
-    employee_id INTEGER NOT NULL REFERENCES Employee
+    employee_id INTEGER NOT NULL REFERENCES Employee,
+    status TEXT NOT NULL
 );
 
 --OrdersProduct
@@ -113,12 +116,12 @@ CREATE TABLE Prescription (
 
 --Inserts---------------------------------------------------
 -- Employee   
-INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password) VALUES (1, 'Mariana Calado', 912345678,'up202003072@fe.up.pt', 'Rua Aurélia de Sousa','4f31a719805c7ad9124289beb4abc44ed47b3c8b');--Password é "123456789"
-INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password) VALUES (2, 'Susana Teixeira', 912345679, 'up202103376@fe.up.pt', 'Rua Roberto Matias','f7c3bc1d808e04732adf679965ccc34ca7ae3441');--Password é "123456788"
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (1, 'Mariana Calado', 912345678,'up202003072@fe.up.pt', 'Rua Aurélia de Sousa','4f31a719805c7ad9124289beb4abc44ed47b3c8b','emp');--Password é "123456789"
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (2, 'Susana Teixeira', 912345679, 'up202103376@fe.up.pt', 'Rua Roberto Matias','f7c3bc1d808e04732adf679965ccc34ca7ae3441','emp');--Password é "123456788"
 
 --Customer   
-INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num) VALUES (1, 'Roberto Carlos', 912345671,'roberto1@gmail.pt', 'Porto','Rua alma Girvo','4f31a719805c7ad9124289beb4abc44ed47b3c88', 265667674);--Password é "roberto_bolo1"
-INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num) VALUES (2, 'Ana Martins', 912345672,'ana_martins@gmail.pt', 'Lisboa', 'Rua da Lagoa','4f31a719805c7ad9124289beb4abc44ed47b3c89', 265667675);--Password é "martina_123"
+INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num, role) VALUES (1, 'Roberto Carlos', 912345671,'roberto1@gmail.pt', 'Porto','Rua alma Girvo','4f31a719805c7ad9124289beb4abc44ed47b3c88', 265667674,'cust');--Password é "roberto_bolo1"
+INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num, role) VALUES (2, 'Ana Martins', 912345672,'ana_martins@gmail.pt', 'Lisboa', 'Rua da Lagoa','4f31a719805c7ad9124289beb4abc44ed47b3c89', 265667675,'cust');--Password é "martina_123"
 
 --Suplier
 INSERT INTO Suplier (id_suplier, name, phone_num, e_mail, address) VALUES (1, 'Alconox', 9149484040,'alconoxinfo@gmail.pt', '30 Glenn Street, Suite 309 White Plains 10603 New York United States of America');
