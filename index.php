@@ -26,11 +26,18 @@
 
         $names = array('Alice', 'Jane', 'John');
         //echo $names[1];
-        echo "4. John has two friends: $names[1] and $names[0].<br>";
-
+        echo "4. John has two friends: $names[1] and $names[0].<br><br>";
+                    
         $array = array ('Brand' => 'Ferrari', 'hp' => 500, 2 => 'wheels', 'mine');
-        foreach ($array as $key => $value)
-         echo "That $value with $key and 4 $value is $value";
+        foreach ($array as $value)
+         echo "5. That $value with $value and 4 $value is $value <br><br>";
+
+        
+         while($expre)
+            echo "● I will get a good grade on the exam.";
+                  
+
+
         ?>
 
     </body>
