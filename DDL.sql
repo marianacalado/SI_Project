@@ -13,7 +13,7 @@ CREATE TABLE Employee(
     e_mail TEXT NOT NULL UNIQUE,
     address TEXT,
     password TEXT NOT NULL,
-    role TEXT NOT NULL CONSTRAINT role_check_em CHECK (role = "cust" OR role = "emp")
+    role TEXT NOT NULL CONSTRAINT role_check_em CHECK (role = "emp")
 );
 
 --Customer   
@@ -28,7 +28,7 @@ CREATE TABLE Customer(
     city TEXT NOT NULL,
     password TEXT NOT NULL,
     VAT_num INTEGER NOT NULL UNIQUE,
-    role TEXT NOT NULL CONSTRAINT role_check_cus CHECK (role = "cust" OR role = "emp")
+    role TEXT NOT NULL CONSTRAINT role_check_cus CHECK (role = "cust")
 );
 
 --Suplier
@@ -199,7 +199,7 @@ INSERT INTO Product (id_product, name, unit_price, description, category_id, bra
 INSERT INTO Product (id_product, name, unit_price, description, category_id, brand_id) VALUES (22, 'Ladvance Álcool Gel Desinfetante 5L', 22.50 ,'Todos os tipos de pele.Uso Familiar.70% de álcool etílico.Gel desinfetante cutâneo que confere sensação de frescura e bem-estar da pele.', 6 , 13 );
 INSERT INTO Product (id_product, name, unit_price, description, category_id, brand_id) VALUES (23, 'Flocath Hydrogel Cateter 851121 CH 12', 3.99 ,'Cateter de hidrogel, com ponta tipo nelaton e duas entradas, indicado para mulher.', 7 , 3 );
 INSERT INTO Product (id_product, name, unit_price, description, category_id, brand_id) VALUES (24, 'Wejoint Comprimidos X30 Cão Grande', 21.30 ,'Alimento complementar para cães e gatos desenvolvido para o auxílio e suporte nutricional das articulações. Recomendado para animais jovens em crescimento, animais com elevada actividade física, e em qualquer tipo de patologia articular (inflamatória, traumática, degenerativa ou onde haja situações de imobilização articular).', 8 , 15 );
-INSERT INTO Product (id_product, name, unit_price, description, category_id, brand_id) VALUES (25, 'Omniomega Cápsulas X120', 38,99 ,'Suplemento alimentar para cães e gatos com elevado teor de Ómega-3 e vitamina E. Omniomega apresenta benefícios em patologias dérmicas, cardiovasculares, renais, neurais, ortopédicas e oncológicas', 8 , 15 );
+INSERT INTO Product (id_product, name, unit_price, description, category_id, brand_id) VALUES (25, 'Omniomega Cápsulas X120', 38.99 ,'Suplemento alimentar para cães e gatos com elevado teor de Ómega-3 e vitamina E. Omniomega apresenta benefícios em patologias dérmicas, cardiovasculares, renais, neurais, ortopédicas e oncológicas', 8 , 15 );
 
 
 --SupProduct (o suplier 1 nao tem produtos e o produto 25 nao tem sup)
