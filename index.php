@@ -2,7 +2,12 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Hello World</title>
+        <!-- CSS Files MUDAR!!-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- O QUE O PROF TINHA-->
+        <link href="style.css" rel="stylesheet">
+        <link href="layout.css" rel="stylesheet">
+        <link href="responsive.css" rel="stylesheet">
+        <title>MyPharma</title>
     </head>
     <body>
         <h1><?php echo '1. Hello World!'?></h1>
