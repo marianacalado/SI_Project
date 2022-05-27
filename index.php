@@ -4,13 +4,20 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <!-- CSS Files MUDAR!!
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">  O QUE O PROF TINHA
         <link href="style.css" rel="stylesheet">
         <link href="layout.css" rel="stylesheet">
         <link href="responsive.css" rel="stylesheet"> -->
+
         <title>MyPharma</title>
+
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" type="text/css" href="templatemo_548_training_studio/assets/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="templatemo_548_training_studio/assets/css/font-awesome.css">
+
+        <link rel="stylesheet" href="templatemo_548_training_studio/assets/css/templatemo-training-studio.css">
+
     </head>
     <body>
         <?php 
