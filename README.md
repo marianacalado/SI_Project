@@ -1,2 +1,11 @@
 # SI_Project
-Projeto SI
+
+Additional notes:
+- 
+
+- 
+
+Authors:
+Mariana Calado (up202003072)
+Susana Teixeira (up2021xxxx)
+
