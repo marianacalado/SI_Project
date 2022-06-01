@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>MyPharmaOrder</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="try_new.css" rel="stylesheet" />
+  </head>
+  
+  <body>
+    <header>
+        <!-- Cabeçalho da página: Navbar-->
+        <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+        <div id="logout">
+          <a href="./init_page.html">Logout</a>
+        </div>
+    </header>
+    <div>
+        <nav id="menu">
+            <ul>
+                <li><button class="sidebar-title">Medicines subject to medical prescription</button></li>
+                <li><button class="current">register prescription</button></li>
+                <li><button class="sidebar-title">Medicines not subject to medical prescription</button></li>
+                <li><a href="list_products.html">Beauty & Hygiene</a></li>
+                <li><a href="list_products.html">Personal Care</a></li>
+                <li><a href="list_products.html">Medicines</a></li>
+                <li><a href="list_products.html">Food Suplements & Nutricion</a></li>
+                <li><a href="list_products.html">Contraception & Intimate Products</a></li>
+                <li><a href="list_products.html">Covid-19</a></li>
+                <li><a href="list_products.html">Medical Equipment</a></li>
+                <li><a href="list_products.html">Animal Care</a></li>
+                <li><a href="list_products.html">Orthopedic Products</a></li>
+            </ul>
+        </nav>
+        <section class="main-container">
+            <header>
+                <h1>Registar Receita</h1>
+            </header>
+            <section class="input-container">
+                <form>
+                <label for="prescription">Prescription Number <span>*</span> </label>
+                <input type="number" id="prescription" name ="prescription" required />
+
+                <label for="ben_">Beneficiary Name <span>*</span> </label>
+                <input type="text" id="ben_" name ="ben_" required />
+                
+                <label for="doct_name">Doctor Name <span>*</span> </label>
+                <input type="text" id="doct_name" name ="doct_name" required />
+                <button>Register</button>
+                </form>
+            </section>
+        </section>
+    </div>
+  </body>
+</html>

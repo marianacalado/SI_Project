@@ -1,0 +1,134 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+  body>header {
+    background-color: #8fbc8f;
+    display: flex;
+    height: 12vh;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  body>header a {
+    height: 70%;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  body>header a img {
+    height: 100%;
+    margin-left: 10px;
+  }
+
+  body {
+    height: 100%;
+    width: 100%;
+    background-image: url("./assets/welcome.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .section1 {
+    display: flex;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    
+  }
+
+  .section1 form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+  .section1 article {
+    box-shadow: 0 0 8px #8FBC8F; /* sombreado */
+    background: rgba(240, 240, 240, 0.856);
+    border-radius: 10px;
+    margin-left: 38%;
+    margin-top: 100px;
+    width: 25%;
+    padding: 1rem;
+  }
+
+
+  #text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-self: center;
+    margin: 20px;
+  }
+
+
+  article form label {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  article form input{
+    border: none;
+    border-radius: 10px;
+    width: 20rem;
+    height: 36px;
+    font-size: larger;
+    background-color: rgba(192, 192, 192, 0.466);
+    padding: 0.2rem 0.5rem;
+    color: black;
+  }
+
+  article form input:focus{
+    outline-color: #8FBC8F;
+  }
+
+
+  article form button{
+    margin-bottom: 5rem;
+    width: 10rem;
+    height: 3rem;
+    margin-top: 3rem;
+    background-color: #8fbc8f;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  } 
+
+  article form button:hover{
+    height: 3rem;
+    background-color: rgba(143, 188, 143, 0.3);
+    border: 1px solid #8fbc8f;
+  } 
+
+  article form button:active{
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  article form>p{
+    align-self: center;
+  }
+
+
+  a {
+    align-self: center;
+    justify-self: center;
+    text-decoration: none;
+    color: #3db63d;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+

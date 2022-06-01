@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>MyPharmaOrder</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="NewOrder.css" rel="stylesheet" />
+  </head>
+
+  <header>
+    <!-- Cabeçalho da página: Navbar-->
+    <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+    <div id="logout">
+      <a href="./init_page.html">Logout</a>
+    </div>
+  </header>
+  
+  <body>
+    <div>
+      <aside>
+        <button class="sidebar-title">Sujeito a receita médica</button>
+        <button class="current">Registar Receita</button>
+        <button class="sidebar-title">Produtos não sujeitos a receita médica</button>
+        <button>Beauty & Hygiene</button>
+        <button>Personal Care</button>
+        <button>Medicines</button>
+        <button>Food Suplements & Nutricion</button>
+        <button>Contraception & Intimate Products</button>
+        <button>Covid-19</button>
+        <button>Medical Equipment</button>
+        <button>Animal Care</button>
+        <button>Orthopedic Products</button>
+      </aside>
+      <section class="main-container">
+        <header>
+          <h1>Registar Receita</h1>
+        </header>
+        <section class="input-container">
+          <form>
+            <label for="prescription">Prescription Number <span>*</span> </label>
+            <input type="number" id="prescription" name ="prescription" required />
+
+            <label for="ben_">Beneficiary Name <span>*</span> </label>
+            <input type="text" id="ben_" name ="ben_" required />
+            
+            <label for="doct_name">Doctor Name <span>*</span> </label>
+            <input type="text" id="doct_name" name ="doct_name" required />
+            <button>Register</button>
+          </form>
+        </section>
+      </section>
+    </div>
+  </body>
+</html>

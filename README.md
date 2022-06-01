@@ -1,9 +1,7 @@
-# SI_Project
+SI_Project
 
 Additional notes:
-- 
-
-- 
+ 
 
 Authors:
 Mariana Calado (up202003072)

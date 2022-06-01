@@ -1,0 +1,47 @@
+<!-- <?php
+  session_start();                                         // starts the session
+
+  require_once('database/connection.php');                 // database connection
+  require_once('database/users.php');                      // user table queries
+
+  if (userExists($_POST['username'], $_POST['password']))  // test if user exists
+    $_SESSION['username'] = $_POST['username'];            // store the username
+
+  header('Location: ' . $_SERVER['HTTP_REFERER']);         // redirect to the page we came from
+?> -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Login</title>  
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="Login.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Cabeçalho da página: Navbar-->
+      <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+    </header>
+    <div class = "section1">
+      <article>
+        <form action="action_login.php" method="post">
+          <div id = "text">Welcome!</div>
+                  
+          <label id="label1" for="email">Email</label>
+          <input type="text" id="email" name ="email" required>
+
+          <label id="label2" for="password_">Password</label>
+          <input type="password" id ="password_" name ="password_" required>
+  
+          <button type="submit">Login</button>  
+
+          <p>Not a member? <a href = "Register.html">Register here.</a></p>
+        </form>
+      </article>   
+    </div>
+  </body>
+</html>
+ 

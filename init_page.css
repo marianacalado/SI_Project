@@ -1,0 +1,120 @@
+/* Main Style */
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Libre Franklin', sans-serif;
+}
+
+/* header */
+body>header {
+  background-color: #8fbc8f;
+  display: flex;
+  height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body>header a {
+  height: 70%;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#signup > * {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+}
+
+#signup a {
+  text-decoration: none;
+  color: white;
+
+}
+
+#signup a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+body>header a img {
+  height: 100%;
+  margin-left: 10px;
+}
+
+/* wallpaper */
+#Wallpaper {
+  background-image: url("./assets/banner_init_page.jpg");
+  height: 60vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#Wallpaper h1 {
+  padding-bottom: 0.5rem;
+  color: black;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+#Wallpaper h3 {
+  width: 60%;
+  text-align: center;
+  font-weight: 300;
+}
+
+.category-container {
+  height: 60%;
+  align-items: stretch;
+}
+
+.categors_inline {
+  display: inline-block;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 25%;
+
+  padding: 0 1rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.product {
+  width: 20vw;
+  margin: 0 0.5rem;
+  padding: 1rem 1rem;
+  position: relative;
+  background-color: #8FBC8F;
+}
+
+.product h2 {
+  padding: 0.5rem 0rem;
+}
+.product p {
+  font-weight: 300;
+}
+
+.product button {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  font-size: 1.3rem;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+.product img {
+  width: 100%;
+}
