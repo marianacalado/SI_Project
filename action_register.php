@@ -25,7 +25,15 @@
     //$role = $_POST["password"];
 
     $array = getLastInsertedId(); //aqui está a ir buscar os clientes á base de dados 
-    $customer_id = getNewPersonId($array); //isto se for possível adicionar pessoas que nao estejam na base de dados !!!! mudar no customer
+    $customer_id = getNewPersonId($array); //isto se for possível adicionar pessoas que nao estejam na base de dados !!!! mudar no customer nao e preciso 
+
+
+        // if(loginSuccess()
+        // session)
+        // role=admin
+
+
+
 
 
     //fazer os checks todos FALTA!!

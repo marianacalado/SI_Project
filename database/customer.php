@@ -27,7 +27,7 @@
     {
         global $dbh; //definir como variavel global
         $stmt = $dbh->prepare('INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num, role) VALUES (?,?,?,?,?,?,?,?,?)');
-        $stmt->execute(array($customer_id, $name, $phone_number, $email,  $address, $city, sha1($password), $vat_num, $role));  //role aqui
+        $stmt->execute(array($customer_id, $name, $phone_number, $email,  $address, $city, sha1($password), $vat_num, $cust));  //role aqui tem de se dar um valor de cust como role nao e preciso pedir 
     }
 
      //Function que verifica se o login é valido
@@ -39,6 +39,14 @@
          $stmt->execute(array($email, sha1($password)));  
          return $stmt->fetch(); //ou falso ou array que retorna linha caso seja válido
     }
+    
+
+
+
+
+
+
+
     
     // function getStaff(){
     //     global $dbh;
