@@ -1,10 +1,12 @@
 <!-- <?php
   session_start();
+
+  require('database/conection.php');
+  require('database/action_register.php');
+
   $msg= $SESSION ["msg"];
   unset($SESSION ["msg"]);//apagar o atributo sessao 
-
-  require('database/action_register.php'); //ISTO ESTA MAL SAO OUTROS REQUIRES
-   
+  
 ?> -->
 
 <!DOCTYPE html>
@@ -68,8 +70,6 @@
                             <label for="password">Password <span>*</span> </label>
                             <input id = "password" name ="password" type="password" required/>
                         </div>
-
-                        <!-- FALTA ROLE !!!!!!!!!!!!!-->
                             
                     </div>
                     <button>Next</button>
@@ -81,6 +81,7 @@
                 <img src="./assets/sign.jpg" alt="SignupImage">
             </div>
         </section>
+        <!-- <?php include_once('footer_tem.php'); ?> NAO SEI POR EM PHP-->
         <footer>
             <div id = "footerSection1"> 
                 <img src = "./assets/address.png" alt = "Address icon">

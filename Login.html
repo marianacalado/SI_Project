@@ -1,9 +1,12 @@
 <!-- <?php
   session_start();
+
+  require('database/conection.php');
   require('database/action_login.php'); //ISTO ESTA MAL SAO OUTROS REQUIRES
 
   $msg = $_SESSION["msg"];
   unset($_SESSION["msg"]);
+
 ?> -->
 
 <!DOCTYPE html>
@@ -18,8 +21,8 @@
 
   <body>
     <header>
-      <!-- Cabeçalho da página: Navbar-->
       <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+      
     </header>
     <div class = "section1">
       <article>

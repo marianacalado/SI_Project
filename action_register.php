@@ -1,19 +1,10 @@
 <!-- ficheiro de ação regista os users, nao tem html vai a base de dados introduzir um utilizador com base naqueles paramentros  -->
 
 <?php
-    #get username and password from params
-    #verificar se o mail e password estao corretas
-    #if o login for valido:
-        //-criar sessao para o user 
-        //-redirecionar para a main 
-    #else:
-        //-set error msg:"Login Failed!"
-        //redirecionar para a main page 
-
     session_start();
 
     require('database/conection.php');
-    require('database/customer.php'); //File with functions que vao buscar os dados á db
+    require('database/customer.php'); //Ficheiro com functions que vao buscar á db
 
     $name = $_POST["name"];
     $email = $_POST["email"];
@@ -22,48 +13,76 @@
     $city = $_POST["city"];
     $address = $_POST["address"];
     $password = $_POST["password"];
-    //$role = $_POST["cust"];
+    $role = "cust"
 
     $array = getLastInsertedId(); //aqui está a ir buscar os clientes á base de dados 
     $customer_id = getNewPersonId($array); //isto se for possível adicionar pessoas que nao estejam na base de dados !!!! mudar no customer nao e preciso 
 
-
-        // if(loginSuccess()
-        // session)
-        // role=admin
         
-    //fazer os checks todos FALTA!!
-    try {
-        if(strlen($email) == 0) {
-            $_SESSION["msg"] = "Registration Successfull!";
-            header('Location:customer_init.php'); //redireciona para a pagina perfil da pessoa
+    //Function that creates a new Customer
+    function insertUser($customer_id, $name, $phone_number, $email,  $address, $city, $password, $vat_num, $role) //Falta verificar role
+    {
+        global $dbh; //definir como variavel global
+        $stmt = $dbh->prepare('INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num, role) VALUES (?,?,?,?,?,?,?,?,?)');
+        $stmt->execute(array($customer_id, $name, $phone_number, $email,  $address, $city, sha1($password), $vat_num, $role));  //role aqui tem de se dar um valor de cust como um empl nao e preciso de se registar
+    }
+        //checks de tudo 
+      if (strlen($name) == 0) {
+            $_SESSION["msg"] = "Must put your Name!";
+            header("Location: Register.php");
             die();
+       }
+
+      if (strlen($email) == 0) {
+        $_SESSION["msg"] = "Must put your Email!";
+        header("Location: Register.php");
+        die();
+      }
+      
+      if (strlen($vat_num) == 0) {
+        $_SESSION["msg"] = "Must put your Vat Number!";
+        header("Location: Register.php");
+        die();
+      }
+
+      if (strlen($phone_number) == 0) {
+        $_SESSION["msg"] = "Must put your Phone Number!";
+        header("Location: Register.php");
+        die();
+      }
+
+      if (strlen($city) == 0) {
+        $_SESSION["msg"] = "Must put your City!";
+        header("Location: Register.php");
+        die();
+      }
+
+      if (strlen($address) == 0) {
+        $_SESSION["msg"] = "Must put your Address!";
+        header("Location: Register.php");
+        die();
+      }
+
+      if (strlen($password) == 0) {
+        $_SESSION["msg"] = "Must have a Password!";
+        header("Location: Register.php");
+        die();
+      }
+
+      //{UNIQUE (VAT_num, phone_num, e-mail)} Como por isto?
+      try {
+        insertUser($customer_id, $name, $phone_number, $email,  $address, $city, $password, $vat_num, $role); //role tem de ser igual a um cost
+        $_SESSION["msg"] = "Registration successful!";
+        header('Location: customer_init.php');
+      } catch(PDOException $e) {
+        $err_msg = $e->getMessage();
+    
+        if (strpos($err_msg, "UNIQUE")) {
+          $_SESSION["msg"] = "Username already exists!";
+        } else {
+          $_SESSION["msg"] = "Registration failed! ($err_msg)";
         }
-    }  
+        header("Location: Register.php");
+      }
 
-    insertUser($customer_id, $name, $phone_number, $email,  $address, $city, $password, $vat_num, $role);
-
-    // try{ //forma prof
-    //     insertUser($customer_id, $name, $phone_number, $email,  $address, $city, $password, $vat_num, $role);
-    //     $_SESSION["msg"] = "Registration Successfull!";
-    //     header('Location:customer_init.php'); //redireciona para a pagina perfil da pessoa
-    // }   
-    // catch(PDOException $e){
-    //         $_SESSION["msg"] = "Registration failed!";
-    //         header('Location:Register.php');
-    // }
-
-
-    //try { //sempre que quisermos  exemplo prof
-        //   $stmt = $dbh->prepare('SELECT * FROM Product WHERE id_category=?'); //isto vai dar erro 
-        //   $stmt->execute(array($id_category)); //executa da erro 
-        //   $products = $stmt->fetchAll()
-        //   var_dumb($products);
-        // } catch (PDOException $e) {
-        //   die(e$e->getMessage());//para a execução de codigo e para 
-        // }
-    
-
-
-    
 ?>

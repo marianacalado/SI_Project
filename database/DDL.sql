@@ -61,7 +61,7 @@ DROP TABLE IF EXISTS SupProduct;
 CREATE TABLE SupProduct(
     suplier_id INTEGER REFERENCES Suplier,
     product_id INTEGER REFERENCES Product,
-    quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0), 
+    --quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0), JÁ NAO VAI SER NECESSÁRIO
     PRIMARY KEY (suplier_id, product_id)
 );
 
@@ -83,7 +83,7 @@ DROP TABLE IF EXISTS OrdersProduct;
 CREATE TABLE OrdersProduct(
     order_id INTEGER REFERENCES Orders,
     product_id INTEGER REFERENCES Product,
-    quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0), 
+    --quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0), JÁ NAO VAI SER NECESSÁRIO
     PRIMARY KEY (order_id, product_id)
 );
 
@@ -204,34 +204,34 @@ INSERT INTO Product (id_product, name, unit_price, description, category_id, bra
 
 
 --SupProduct (o suplier 1 nao tem produtos e o produto 25 nao tem sup)
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (2, 1 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (2, 2 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (2, 3 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (2, 4 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (2, 5 , 100);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (2, 1);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (2, 2);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (2, 3);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (2, 4);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (2, 5);
 
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (3, 6 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (3, 7 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (3, 8 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (3, 9 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (3, 10, 100);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (3, 6);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (3, 7);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (3, 8);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (3, 9);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (3, 10);
 
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (4, 11 , 100 );
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (4, 12 , 100 );
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (4, 13 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (4, 14 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (4, 15 , 100);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (4, 11);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (4, 12);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (4, 13);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (4, 14);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (4, 15);
 
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (5, 16 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (5, 17 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (5, 18 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (5, 19 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (5, 20 , 100);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (5, 16);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (5, 17);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (5, 18);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (5, 19);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (5, 20);
 
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (6, 21 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (6, 22 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (6, 23 , 100);
-INSERT INTO SupProduct (suplier_id, product_id , quantity) VALUES (6, 24 , 100);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (6, 21);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (6, 22);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (6, 23);
+INSERT INTO SupProduct (suplier_id, product_id) VALUES (6, 24);
 
 --Orders
 INSERT INTO Orders (id_order, date, delv_address,  customer_id , employee_id, status) VALUES (1, '01/01/2022', 'R. Eng. Ferreira Dias 181, Porto',3,1, 'completed');
@@ -248,38 +248,38 @@ INSERT INTO Orders (id_order, date, delv_address,  customer_id , employee_id, st
 
 --OrdersProduct DUVIDA CADA ENCOMENDA PODE CONTER VARIOS PRODUTOS MAS SE FIZER SEM A CLASSE QUANTIDADE CADA PRODUTO TEM DE SER ENCOMENDADO OU PONHO SO NOT NULL E ASSIM RESOLVE O PROB OU ENTAO DA PARA FAZER COM AS CHAVES UNICAS? 
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (1, 1, 1);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (1, 2, 1);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (1, 3, 2);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (1, 1);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (1, 2);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (1, 3);
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (2, 4, 5);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (2, 5, 1);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (2, 4);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (2, 5);
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (3, 6, 1);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (3, 7, 6);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (3, 6);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (3, 7);
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (4, 8, 2);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (4, 8);
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (5, 9, 4);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (5, 10, 9);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (5, 11, 4);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (5, 12, 9);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (5, 9);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (5, 10);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (5, 11);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (5, 12);
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (6, 13, 4);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (6, 14, 9);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (6, 13);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (6, 14);
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (7, 15, 4);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (7, 15);
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (8, 16, 9);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (8, 16);
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (9, 17, 4);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (9, 18, 9);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (9, 19, 4);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (9, 20, 9);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (9, 17);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (9, 18);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (9, 19);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (9, 20);
 
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (10, 21, 4);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (10, 22, 9);
-INSERT INTO OrdersProduct (order_id, product_id, quantity) VALUES (10, 23, 4);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (10, 21);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (10, 22);
+INSERT INTO OrdersProduct (order_id, product_id) VALUES (10, 23);
 
 
 --Prescription

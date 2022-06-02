@@ -1,23 +1,12 @@
-<!-- <?php PROF
-  require_once('database/connection.php');// database connection
-  require_once('database/news.php'); // news table queries
-
-  require_once('templates/common.php');    // common templates
-  require_once('templates/news.php');      // news templates
-
-  $db = getDatabaseConnection();           // connect to database
-  $articles = getAllNews($db);             // get articles from database
-
-  output_header();                         // output page header criar função para ir buscar header e footer
-  output_footer();                         // output page footer
-?> -->
-
 <!-- <?php
   session_start();
-  require('database/action_login.php'); //ISTO ESTA MAL SAO OUTROS REQUIRES
+
+  require_once('database/conection.php');
+  require_once('database/action_login.php'); 
 
   $msg = $_SESSION["msg"];
   unset($_SESSION["msg"]);
+
 ?> -->
 
 <!DOCTYPE html>
