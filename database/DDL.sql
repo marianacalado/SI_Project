@@ -51,6 +51,7 @@ CREATE TABLE Product(
     unit_price REAL NOT NULL CONSTRAINT product_price_must_be_superior_0 CHECK (unit_price > 0),
     description TEXT NOT NULL,
     category_id INTEGER NOT NULL REFERENCES Category,
+    --image_path TEXT  POR COLUNA NOVA NO INSERT COM O PATH DAS IMAGENS 
     brand_id INTEGER NOT NULL REFERENCES Brand
 );
 
@@ -287,4 +288,5 @@ INSERT INTO Prescription (id_prescription, doct_name, benf_name, product_id, ord
 
 -- TESTE What are the names and locations of all costumers? (name, city)
 --SELECT name, city FROM Customer; --selecionar as colunas (name, city) da tabela 
---SELECT * FROM Category
+
+--SELECT * FROM Products, Category WHERE id_category = category_id; //quero selecionar todos os produtos da categoria 1

@@ -1,3 +1,12 @@
+<!-- <?php
+  session_start();
+  $msg= $SESSION ["msg"];
+  unset($SESSION ["msg"]);//apagar o atributo sessao 
+
+  require('database/action_register.php'); //ISTO ESTA MAL SAO OUTROS REQUIRES
+   
+?> -->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -10,11 +19,12 @@
     </head>
 
     <body> 
-        <header> <!-- Cabeçalho da página: Navbar--> 
+        <header> 
             <a href="./init_page.html"> <img alt="Logo" src="./assets/Logo_white.png" /></a>
             <div id="signup">
             <a href="./Login.html">Login</a>
             </div>
+            <!-- <p> <?php echo $msg?></p> para aparecer mensagem que nao se registou! -->
         </header>
         <section class = "section1">
             <div class = "div1">
@@ -58,6 +68,8 @@
                             <label for="password">Password <span>*</span> </label>
                             <input id = "password" name ="password" type="password" required/>
                         </div>
+
+                        <!-- FALTA ROLE !!!!!!!!!!!!!-->
                             
                     </div>
                     <button>Next</button>
@@ -87,7 +99,7 @@
                 <p> mypharmainfo@gmail.com </p>         
             </div>
         
-            <div id = "footerSection2"> <!-- Newsletter subscription and copyright-->
+            <div id = "footerSection2"> 
                 <p> Copyright © MyPharma 2022. All rights reserved 
                     <br> Made by Mariana Calado | Susana Teixeira 
                 </p>

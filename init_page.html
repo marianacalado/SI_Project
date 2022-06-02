@@ -1,4 +1,4 @@
-<!-- <?php
+<!-- <?php PROF
   require_once('database/connection.php');// database connection
   require_once('database/news.php'); // news table queries
 
@@ -12,6 +12,14 @@
   output_footer();                         // output page footer
 ?> -->
 
+<!-- <?php
+  session_start();
+  require('database/action_login.php'); //ISTO ESTA MAL SAO OUTROS REQUIRES
+
+  $msg = $_SESSION["msg"];
+  unset($_SESSION["msg"]);
+?> -->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -22,16 +30,14 @@
     <link href="footer.css" rel="stylesheet" />
     <link href="init_page.css" rel="stylesheet" />
   </head>
-
-  
-
   <body>
-    <header > <!-- Cabeçalho da página: Navbar--> 
+    <header >
       <a href="./init_page.html"> <img alt="Logo" src="./assets/Logo_white.png" /></a>
       <div id="signup">
         <a href="./Login.html">Login</a>
         <a href="./Register.html">Register</a>
       </div>
+      <!-- <p> <?php echo $msg?></p> para aparecer mensagem que FALHOU LOGIN! -->
     </header>
 
     <aside id="Wallpaper">

@@ -1,13 +1,9 @@
 <!-- <?php
-  session_start();                                         // starts the session
+  session_start();
+  require('database/action_login.php'); //ISTO ESTA MAL SAO OUTROS REQUIRES
 
-  require_once('database/connection.php');                 // database connection
-  require_once('database/users.php');                      // user table queries
-
-  if (userExists($_POST['username'], $_POST['password']))  // test if user exists
-    $_SESSION['username'] = $_POST['username'];            // store the username
-
-  header('Location: ' . $_SERVER['HTTP_REFERER']);         // redirect to the page we came from
+  $msg = $_SESSION["msg"];
+  unset($_SESSION["msg"]);
 ?> -->
 
 <!DOCTYPE html>

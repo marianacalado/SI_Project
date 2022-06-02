@@ -1,3 +1,20 @@
+<!-- <?php
+  session_start();
+
+  require('database/conection.php');
+    
+  try { //sempre que quisermos 
+    //   $stmt = $dbh->prepare('SELECT * FROM Product WHERE id_category=?'); //isto vai dar erro 
+    //   $stmt->execute(array($id_category)); //executa da erro 
+    //   $products = $stmt->fetchAll()
+    //   var_dumb($products);
+    // } catch (PDOException $e) {
+    //   die(e$e->getMessage());//para a execução de codigo e para 
+    // }
+
+   
+?> -->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -10,7 +27,6 @@
   
   <body>
     <header>
-        <!-- Cabeçalho da página: Navbar-->
         <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
         <div id="logout">
           <a href="./init_page.html">Logout</a>
@@ -19,6 +35,11 @@
     <div>
         <nav id="menu">
             <ul>
+              <!-- <?php foreach ($categories as $row) { ?>
+                <li>
+                  <a href="list_products.html?id_category="><?php echo $row["id"] ?></a>
+                </li>
+              <?php }?> vai substituir a lista de categorias em html  -->
                 <li><button class="sidebar-title">Medicines subject to medical prescription</button></li>
                 <li><button class="current">register prescription</button></li>
                 <li><button class="sidebar-title">Medicines not subject to medical prescription</button></li>

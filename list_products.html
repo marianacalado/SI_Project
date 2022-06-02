@@ -1,0 +1,31 @@
+<!-- <?php 
+    $id_category= echo $_GET["id_category"]
+
+    $dbh = new PDO('sqlite:database/DDL.db'); //CRIA A LIGAÇÃO E GUARDA NA VARIAVEL 
+    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); //retona com nomes nas colunas em vez de penas o indice
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //trow an exception
+
+    // try { //sempre que quisermos que execute e de erro se tiver erro
+    //   $stmt = $dbh->prepare('SELECT * FROM Product WHERE id_category=?'); //isto vai dar erro 
+    //   $stmt->execute(array($id_category)); //executa da erro 
+    //   $products = $stmt->fetchAll()
+    // } catch (PDOException $e) {
+    //   die(e$e->getMessage());//para a execução de codigo e para 
+    // }
+?>
+
+
+
+
+//html
+//ver estrutura que pus no php para por os produtos em quadrados
+
+
+//antes do article com os blocos com produtos  -->
+<!-- <?php foreach ($products as $row) { ?> //executa quantas linhas teho na lista
+            <article>//estrutura dos blocos para cada produtos html
+                <h3><?php echo $row["name"] ?></h3>
+                <img> src="<?php echo $row['image_path']?>" alt= "" //imagem dinamica adicionar image_path como atributo nos produtos  e depois fazer insert com  o path
+                <span> class="price">€<?php echo $row[$row]?></span>
+            </article>
+        <?php }?> vai substituir a lista de categorias em html  -->
