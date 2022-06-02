@@ -38,7 +38,9 @@
     } else{
         $_SESSION["msg"] = "Login Fail!";//-set error msg:"Login Failed!"
         header('Location:init_page.php'); //redireciona para a pagina main
-        die();
+        
+        
+        ##die();
     }
 
 ?>

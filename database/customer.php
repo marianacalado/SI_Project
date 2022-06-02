@@ -31,7 +31,6 @@
     }
 
      //Function que verifica se o login é valido
-     
     function loginIsValid($email, $password) 
     {
          global $dbh; //definir como variavel global
