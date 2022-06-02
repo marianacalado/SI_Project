@@ -25,9 +25,10 @@
     //Function that creates a new Customer
     function insertUser($customer_id, $name, $phone_number, $email,  $address, $city, $password, $vat_num, $role) //Falta role
     {
+        //$role= "cust"
         global $dbh; //definir como variavel global
         $stmt = $dbh->prepare('INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num, role) VALUES (?,?,?,?,?,?,?,?,?)');
-        $stmt->execute(array($customer_id, $name, $phone_number, $email,  $address, $city, sha1($password), $vat_num, $cust));  //role aqui tem de se dar um valor de cust como role nao e preciso pedir 
+        $stmt->execute(array($customer_id, $name, $phone_number, $email,  $address, $city, sha1($password), $vat_num, "cust"));  //role aqui tem de se dar um valor de cust como role nao e preciso pedir 
     }
 
      //Function que verifica se o login é valido
@@ -40,13 +41,6 @@
     }
     
 
-
-
-
-
-
-
-    
     // function getStaff(){
     //     global $dbh;
     //     $stmt = $dbh->prepare('SELECT * FROM Person WHERE person_id LIKE "PT%" OR person_id LIKE "NT%" OR person_id LIKE "CW%" OR person_id LIKE "MW%" ');
