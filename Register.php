@@ -1,13 +1,12 @@
-<!-- <?php
-  session_start();
+<?php
 
   require('database/conection.php');
-  require('database/action_register.php');
+  require('action_register.php');
 
   $msg= $SESSION ["msg"];
   unset($SESSION ["msg"]);//apagar o atributo sessao 
   
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -22,11 +21,11 @@
 
     <body> 
         <header> 
-            <a href="./init_page.html"> <img alt="Logo" src="./assets/Logo_white.png" /></a>
+            <a href="./init_page.php"> <img alt="Logo" src="./assets/Logo_white.png" /></a>
             <div id="signup">
-            <a href="./Login.html">Login</a>
+            <a href="./Login.php">Login</a>
             </div>
-            <!-- <p> <?php echo $msg?></p> para aparecer mensagem que nao se registou! -->
+            <p><?php echo $msg?><!-- </p> para aparecer mensagem que nao se registou! -->
         </header>
         <section class = "section1">
             <div class = "div1">
@@ -81,7 +80,7 @@
                 <img src="./assets/sign.jpg" alt="SignupImage">
             </div>
         </section>
-        <!-- <?php include_once('footer_tem.php'); ?> NAO SEI POR EM PHP-->
+        
         <footer>
             <div id = "footerSection1"> 
                 <img src = "./assets/address.png" alt = "Address icon">

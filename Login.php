@@ -1,13 +1,12 @@
-<!-- <?php
-  session_start();
+<?php
 
-  require('database/conection.php');
-  require('database/action_login.php'); //ISTO ESTA MAL SAO OUTROS REQUIRES
+  require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
+  require('action_login.php'); 
 
   $msg = $_SESSION["msg"];
   unset($_SESSION["msg"]);
 
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -21,8 +20,7 @@
 
   <body>
     <header>
-      <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
-      
+      <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
     </header>
     <div class = "section1">
       <article>

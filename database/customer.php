@@ -8,7 +8,7 @@
         return $stmt->fetchAll();
     }
 
-    //Function that generates the id of a new member
+    //Function that generates the id of a new customer
     function getNewPersonId($array)
     {
         if(sizeof($array) == 0) {

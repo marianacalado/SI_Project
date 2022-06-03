@@ -1,21 +1,13 @@
-<!-- <?php
-  session_start();
+<?php
+
+  require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
+  require('action_login.php'); 
+
+
   $msg= $SESSION ["msg"];
   unset($SESSION ["msg"]);//apagar o atributo sessao 
-
-  require('database/conection.php');
     
-  try { //sempre que quisermos 
-    //   $stmt = $dbh->prepare('SELECT * FROM Product WHERE id_category=?'); //isto vai dar erro 
-    //   $stmt->execute(array($id_category)); //executa da erro 
-    //   $products = $stmt->fetchAll()
-    //   var_dumb($products);
-    // } catch (PDOException $e) {
-    //   die(e$e->getMessage());//para a execução de codigo e para 
-    // }
-
-   
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -32,7 +24,7 @@
       <div id="logout">
         <a href="./init_page.html">Logout</a>
       </div>
-      <!-- <p> <?php echo $msg?></p> para aparecer mensagem que se registou! -->
+      <p> <?php echo $msg?> <!--</p> para aparecer mensagem que se registou! -->
     </header>
     <div class="grid-container">
       <section>
