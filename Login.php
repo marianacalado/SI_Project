@@ -2,6 +2,7 @@
 
   require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
   require('action_login.php'); 
+  //require('database/customer.php'); Preciso de or???
 
   $msg = $_SESSION["msg"];
   unset($_SESSION["msg"]);

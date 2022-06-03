@@ -1,23 +1,37 @@
 <!-- <?php 
-    $id_category= echo $_GET["id_category"]
 
     require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
-    require('database/costumer.php'); 
+    require('database/category.php'); 
+    require('database/product.php');
 
-    // try { //sempre que quisermos que execute e de erro se tiver erro
-    //   $stmt = $dbh->prepare('SELECT * FROM Category WHERE id_category=?'); //isto vai dar erro 
-    //   $stmt->execute(array($id_category)); //executa da erro 
-    //   $products = $stmt->fetchAll()
-    // } catch (PDOException $e) {
-    //   die(e$e->getMessage());//para a execução de codigo e para 
-    // }
+    $id_category= $_GET['id_category'];
+
+    fuction getCategoryById($id_category) { //esta função vai a tabela das categorias logo por nas categorias 
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM Category WHERE id_category=?'); 
+        $stmt->execute(array($id_category)); //executa da erro 
+        return $stmt->fetch()
+    }
+
+    $category = getCategoryById($id_category);
+
+    fuction getProductsByCategoryId($id_category) { //por no file de products
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM Product WHERE category_id=?'); //seleciona todos os produtos de uma determinada categoria 
+        $stmt->execute(array($id_category)); 
+        return $stmt->fetchAll()$products
+
+
+    }
+
+    $products= getProductsByCategoryId($id_category);
 ?>
 
 
 
 
 //html
-//ver estrutura que pus no php para por os produtos em quadrados
+//ver estrutura abaixo que pus no php para por os produtos em quadrados
 
 
 //antes do article com os blocos com produtos  -->
