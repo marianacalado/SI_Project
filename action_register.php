@@ -1,10 +1,13 @@
 <!-- ficheiro de ação regista os users, nao tem html vai a base de dados introduzir um utilizador com base naqueles paramentros  -->
 
 <?php 
+  session_start();
 
   require('database/conection.php');
   require('database/customer.php'); //Ficheiro com functions do customer que vao buscar á db
   //require('database/employee.php'); //Ficheiro com functions que vao buscar á db
+
+  
 
   $name = $_POST["name"];
   $email = $_POST["email"];

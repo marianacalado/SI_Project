@@ -1,7 +1,7 @@
 <?php
-
+  session_start();
   require('database/conection.php');
-  require('action_register.php');
+  require('database/customer.php');
 
   $msg= $SESSION ["msg"];
   unset($SESSION ["msg"]);//apagar o atributo sessao 
@@ -25,7 +25,7 @@
             <div id="signup">
             <a href="./Login.php">Login</a>
             </div>
-            <p><?php echo $msg?><!-- </p> para aparecer mensagem que nao se registou! -->
+            <p><?php echo $msg?></p><!--  para aparecer mensagem que nao se registou! -->
         </header>
         <section class = "section1">
             <div class = "div1">

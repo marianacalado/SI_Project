@@ -1,12 +1,30 @@
 <?php
 
+  session_start();
   require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
-  require('action_login.php'); 
+  //require('action_login.php'); 
   //require('database/customer.php'); Preciso de or???
 
+  // if(isset($_SESSION['role'])){
+  //   //if($_SESSION['role']=='cust')
+  //   header("Location: customer_init.php");
+  //   //else
+  //   //header("Location: employee_init.php");
+  // }
+
+  if (isset($_SESSION["email"])) {
+    if ($_SESSION["role"] == "cust") {
+      header("Location: customer_init.php");
+    }
+    // else{
+    //   header("Location: employee_init.php");
+    // } 
+  }
+  
+  
   $msg = $_SESSION["msg"];
   unset($_SESSION["msg"]);
-
+  $cena = $_SESSION["cena"];
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +40,8 @@
   <body>
     <header>
       <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+      <p><?php echo $msg?></p> <!-- para aparecer mensagem que FALHOU LOGIN! -->
+      <p><?php echo $cena?></p> <!-- para aparecer mensagem que FALHOU LOGIN! -->
     </header>
     <div class = "section1">
       <article>

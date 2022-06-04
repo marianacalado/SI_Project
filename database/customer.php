@@ -1,13 +1,28 @@
 <?php 
+    require('database/conection.php');
     
     //Function que verifica se o login é valido--login
     function loginIsValid($email, $password) {
         global $dbh; //definir como variavel global
         global $result;
-        $stmt = $dbh->prepare('SELECT * FROM Customer WHERE e_mail=? AND password= ?');
+        $stmt = $dbh->prepare('SELECT * FROM Customer WHERE e_mail = ? AND password = ?'); //selecionar todos os clientes
         $stmt->execute(array($email, sha1($password)));  
         $result = $stmt->fetch(); //ou falso ou array que retorna linha caso seja válido
+        $_SESSION["cena"] = $result; //print db
+        if($result == false) {
+            $stmt = $dbh->prepare('SELECT * FROM Employee WHERE e_mail = ? AND password = ?'); //selecionar todos os clientes
+            $stmt->execute(array($email, sha1($password)));  
+            $result = $stmt->fetch();
+            if($result != false) {
+                $result["role"] = "emp";
+            }
+        }
+        else {
+            $result["role"] = "cust";
+        }
+
         return $result;
+        
     }
 
     //Function that creates a new Customer--registo 
@@ -17,8 +32,7 @@
         $stmt = $dbh->prepare('INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num, role) VALUES (?,?,?,?,?,?,?,?,?)');
         $stmt->execute(array($customer_id, $name, $phone_number, $email,  $address, $city, sha1($password), $vat_num, $role));  //role aqui tem de se dar um valor de cust como um empl nao e preciso de se registar
     }
-       
-    
+
     // //Function that get the last inserted member id 
     // function getLastInsertedId()
     // {

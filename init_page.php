@@ -1,9 +1,11 @@
 <?php
-  require('database/conection.php');
-  require('action_login.php'); 
 
-  $msg = $_SESSION["msg"];
-  unset($_SESSION["msg"]);
+  //session_start();
+  require('database/conection.php');
+  //require('action_login.php'); 
+
+  // $msg = $_SESSION["msg"];
+  // unset($_SESSION["msg"]);
 
 ?> 
 
@@ -19,12 +21,12 @@
   </head>
   <body>
     <header >
-      <a href="./init_page.html"> <img alt="Logo" src="./assets/Logo_white.png" /></a>
+      <a href="./init_page.php"> <img alt="Logo" src="./assets/Logo_white.png" /></a>
       <div id="signup">
         <a href="./Login.php">Login</a>
         <a href="./Register.html">Register</a>
       </div>
-      <p><?php echo $msg?></p> <!-- para aparecer mensagem que FALHOU LOGIN! -->
+
     </header>
 
     <aside id="Wallpaper">
