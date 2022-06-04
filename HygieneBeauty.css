@@ -1,0 +1,211 @@
+/* Main Style */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Libre Franklin", sans-serif;
+  }
+  
+  
+  /* header */
+  body>header {
+    background-color: #8fbc8f;
+    display: flex;
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  body>header a {
+    height: 70%;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #logout > * {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+  }
+  
+  #logout a {
+    text-decoration: none;
+    color: white;
+  
+  }
+  
+  #logout a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+  }
+  
+  body>header a img {
+    height: 100%;
+    margin-left: 10px;
+  }
+
+  /* navigation */
+  body div {
+    display: flex;
+  }
+
+  #menu ul {
+    background-color: rgb(0, 255, 179);
+    width: 20rem;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #menu button {
+    border: none;
+    width: 100%;
+    height: calc(90vh / 12);
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+  }
+  
+ 
+
+  .sidebar-title {
+    background-color: #678b67;
+    cursor: auto;
+    color: white;
+
+  
+  }
+  .sidebar-title:hover {
+    background-color: #678b67;
+
+  
+  }
+
+
+
+  #menu li a{
+    color: black;
+    text-decoration: none;
+  }
+
+  /* Nao funciona? */
+  #menu li:hover { /* hover: quando se toca com rato */
+  background-color: #2a2f33;
+  }
+
+  /* Nao funciona? */
+
+  #menu li:hover a{
+    color: white;
+  }
+
+  li button:hover{
+    background-color: #8b8b8b;
+    color:white;
+  }
+
+  .main-container {
+    width: calc(100vw - 20rem);
+    height: 90vh;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-image: url("./assets/px_register_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  section{
+    width:100%;
+  }
+  
+  .main-container header {
+    background-color: transparent;
+    padding-top: 3rem;
+    font-size: 2rem;
+  }
+  section header h1 {
+    font-size: 2rem;
+    margin-bottom:2rem;
+  }
+
+  .select-container{
+    display:flex;
+    padding-top:0.5rem;
+  }
+  .select-container > *{
+    width:10rem;
+    height:2rem;    
+    border:none;
+    background-color:#678b67 ;
+
+
+  }
+
+  .select-container select:first-of-type{
+    margin-right: 3rem;
+  } 
+
+  table{
+    margin-top:2rem;
+    border: 2px solid #8fbc8f;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #8fbc8f;
+    padding:0.5rem;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255,255,255,0.6);
+    width:100%;
+
+  
+  }
+
+  table th{
+    padding:0.5rem 1rem;
+
+  }
+  table tr{
+    text-align: center;
+
+  }
+
+  tr input{
+    background-color:#678b67 ;
+    border:none;
+    width:4rem;
+    height:1.5rem;
+    padding-left:0.2rem;
+  }
+
+  tr button{
+    background-color:#678b67 ;
+    border:none;
+    width:4rem;
+    height:1.5rem;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+  }
+
+  tr button:hover{
+    background-color:#476847 ;
+  }
+  
+
+  
+
+  
+  .current {
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      90deg,
+      rgba(143, 188, 143, 1) 25%,
+      rgba(255, 255, 255) 90%
+    );
+  }
+  
