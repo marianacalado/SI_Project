@@ -2,6 +2,7 @@
   session_start();
   require('database/conection.php');
   require('list_products.php');
+
    
 ?> -->
 
@@ -12,14 +13,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="NewOrder.css" rel="stylesheet" />
+    <link href="try_new.css" rel="stylesheet" />
   </head>
   
   <body>
     <header>
-        <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+        <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
         <div id="logout">
-          <a href="./init_page.html">Logout</a>
+          <a href="./init_page.php">Logout</a>
         </div>
     </header>
     <div>
@@ -31,17 +32,17 @@
                 </li>
               <?php }?> vai substituir a lista de categorias em html  -->
                 <li><button class="sidebar-title">Medicines subject to medical prescription</button></li>
-                <li><button class="current">Register prescription</button></li>
+                <li><button class="current">register prescription</button></li>
                 <li><button class="sidebar-title">Medicines not subject to medical prescription</button></li>
-                <li><button>Beauty & Hygiene</button></li>
-                <li><button>Personal Care</button></li>
-                <li><button>Medicines</button></li>
-                <li><button>Food Suplements & Nutricion</button></li>
-                <li><button>Contraception & Intimate Products</button></li>
-                <li><button>Covid-19</button></li>
-                <li><button>Medical Equipment</button></li>
-                <li><button>Animal Care</button></li>
-                <li><button>Orthopedic Products</button></li>
+                <li><a href="list_products.html">Beauty & Hygiene</a></li>
+                <li><a href="list_products.html">Personal Care</a></li>
+                <li><a href="list_products.html">Medicines</a></li>
+                <li><a href="list_products.html">Food Suplements & Nutricion</a></li>
+                <li><a href="list_products.html">Contraception & Intimate Products</a></li>
+                <li><a href="list_products.html">Covid-19</a></li>
+                <li><a href="list_products.html">Medical Equipment</a></li>
+                <li><a href="list_products.html">Animal Care</a></li>
+                <li><a href="list_products.html">Orthopedic Products</a></li>
             </ul>
         </nav>
         <section class="main-container">
