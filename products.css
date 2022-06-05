@@ -52,62 +52,50 @@
     display: flex;
   }
 
-  #menu ul {
-    background-color: rgb(0, 255, 179);
-    width: 20rem;
-    height: 90vh;
+.sidebar-title {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    height: calc(90vh/12);
+    background-color: #678b67;
+    color: white;
     display: flex;
-    flex-direction: column;
-  }
-  
-  #menu button {
-    border: none;
-    width: 100%;
-    height: calc(90vh / 12);
-    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
 
-    transition: all 0.3s ease;
-  }
-  
- 
-
-  .sidebar-title {
+.current {
+    height: calc(90vh/12);
     background-color: #678b67;
     cursor: auto;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
 
-  
-  }
-  .sidebar-title:hover {
-    background-color: #678b67;
-
-  
-  }
-
-
-
-  #menu li a{
+.categorias{
     color: black;
     text-decoration: none;
+    background-color: rgba(212, 212, 212, 0.425);    
+    border: none;
+    width: 100%;
+    height: calc(90vh/12);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
   }
-
-  /* Nao funciona? */
-  #menu li:hover { /* hover: quando se toca com rato */
+  
+.categorias:hover { /* hover: quando se toca com rato */
   background-color: #2a2f33;
-  }
+  color:rgb(255, 255, 255);
+}
 
-  /* Nao funciona? */
-
-  #menu li:hover a{
-    color: white;
-  }
-
-  li button:hover{
-    background-color: #8b8b8b;
-    color:white;
-  }
-
-  .main-container {
+.main-container {
     width: calc(100vw - 20rem);
     height: 90vh;
     padding-left: 2rem;
@@ -119,7 +107,7 @@
     background-image: url("./assets/px_register_background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-  }
+}
 
   section{
     width:100%;
@@ -196,10 +184,6 @@
     background-color:#476847 ;
   }
   
-
-  
-
-  
   .current {
     background: rgb(255, 255, 255);
     background: linear-gradient(
@@ -208,4 +192,3 @@
       rgba(255, 255, 255) 90%
     );
   }
-  

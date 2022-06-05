@@ -174,17 +174,17 @@ overflow-y: scroll;
   text-align: start;
 }
 
-
-
 .separate{
   display:flex;
   justify-content: space-between;
-  align-items: center;
+
 }
 
 .separate p{
   font-size:1rem;
   padding:0.25rem 0;
+  display: flex;
+  justify-content: left;
 }
 
 .separate select{
