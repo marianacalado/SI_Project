@@ -2,8 +2,7 @@
     session_start();
     
     require('database/conection.php');
-    require('database/customer.php');
-    //require('database/employee.php');
+    require('database/customer_emp.php');
 
     //get username and password from params:
     $email = $_POST["email"];
@@ -19,16 +18,17 @@
             $_SESSION["role"] = $result["role"]; //cria sessao
             header("Location: customer_init.php");
             exit();
-        // else ($result["role"] == "emp")
-        //     $_SESSION["role"] = $result["role"]; //cria sessao
-        //     header("Location: employee_init.php"); 
-        //     exit();
-        // 
+        } 
+        else ($result["role"] == "emp")
+        {
+            $_SESSION["role"] = $result["role"]; //cria sessao
+            header("Location: employee_init.php"); 
+            exit();
         }     
     }     
     else {
         $_SESSION["msg"] = "Login failed!";//-set error msg:"Login Failed!"
     }
-
-    header("Location: Login.php");//-redirecionar para a main
+    
+    header("Location: Login.php");//-redirecionar para o login
 ?>

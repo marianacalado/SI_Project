@@ -1,12 +1,15 @@
 <?php
   session_start();
-  require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
-  require('action_login.php'); 
 
- 
+  if (!isset($_SESSION["username"])) {
+    $_SESSION["msg"] = "Please login.";
+    header("Location: init_page.php");
+  }
 
-  $msg= $SESSION ["msg"];
-  unset($SESSION ["msg"]);//apagar o atributo sessao 
+  //require('database/conection.php'); 
+
+  // $msg= $SESSION ["msg"];
+  // unset($SESSION ["msg"]);//apagar o atributo sessao 
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -20,11 +23,11 @@
 
   <body>
     <header>
-      <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+      <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
       <div id="logout">
-        <a href="./init_page.html">Logout</a>
+        <a href="./init_page.php">Logout</a>
       </div>
-      <p> <?php echo $msg?></p><!--</p> para aparecer mensagem que se registou! -->
+      <!-- <p><?php echo $msg?></p> para aparecer mensagem que se registou! -->
     </header>
     <div class="grid-container">
       <section>

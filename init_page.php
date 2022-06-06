@@ -1,7 +1,6 @@
 <?php
+  session_start();
 
-  //session_start();
-  require('database/conection.php');
   //require('action_login.php'); 
 
   // $msg = $_SESSION["msg"];
@@ -24,9 +23,8 @@
       <a href="./init_page.php"> <img alt="Logo" src="./assets/Logo_white.png" /></a>
       <div id="signup">
         <a href="./Login.php">Login</a>
-        <a href="./Register.html">Register</a>
+        <a href="./Register.php">Register</a>
       </div>
-
     </header>
 
     <aside id="Wallpaper">

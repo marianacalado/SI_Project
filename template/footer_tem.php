@@ -16,7 +16,7 @@
         <p> mypharmainfo@gmail.com </p>          
     </div>
 
-    <div id = "footerSection2"> <!-- Newsletter subscription and copyright-->
+    <div id = "footerSection2"> 
         <p> Copyright © MyPharma 2022. All rights reserved 
             <br> Made by Mariana Calado | Susana Teixeira 
     </p>
