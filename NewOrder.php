@@ -1,10 +1,10 @@
-<!-- <?php
+<?php
   session_start();
   require('database/conection.php');
   require('list_products.php');
-teste
+
    
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -34,15 +34,15 @@ teste
                 <li class="sidebar-title">Medicines subject to medical prescription</li>
                 <li class="current">Register Prescription</li>
                 <li class="sidebar-title">Medicines not subject to medical prescription</li>
-                <li class="categorias"><a href="./products.html">Beauty & Hygiene</a></li>
-                <li class="categorias"><a href="./products.html">Personal Care</a></li>
-                <li class="categorias"><a href="./products.html">Medicines</a></li>
-                <li class="categorias"><a href="./products.html">Food Suplements & Nutricion</a></li>
-                <li class="categorias"><a href="./products.html">Contraception & Intimate Products</a></li>
-                <li class="categorias"><a href="./products.html">Covid-19</a></li>
-                <li class="categorias"><a href="./products.html">Medical Equipment</a></li>
-                <li class="categorias"><a href="./products.html">Animal Care</a></li>
-                <li class="categorias"><a href="./products.html">Orthopedic Products</a></li>
+                <li class="categorias"><a href="./list_products.php">Beauty & Hygiene</a></li>
+                <li class="categorias"><a href="./list_products.php">Personal Care</a></li>
+                <li class="categorias"><a href="./list_products.php">Medicines</a></li>
+                <li class="categorias"><a href="./list_products.php">Food Suplements & Nutricion</a></li>
+                <li class="categorias"><a href="./list_products.php">Contraception & Intimate Products</a></li>
+                <li class="categorias"><a href="./list_products.php">Covid-19</a></li>
+                <li class="categorias"><a href="./list_products.php">Medical Equipment</a></li>
+                <li class="categorias"><a href="./list_products.php">Animal Care</a></li>
+                <li class="categorias"><a href="./list_products.php">Orthopedic Products</a></li>
             </ul>
         </nav>
         <section class="main-container">

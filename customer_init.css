@@ -1,0 +1,254 @@
+/* Main Style */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Libre Franklin", sans-serif;
+}
+
+/* header */
+body>header {
+  background-color: #8fbc8f;
+  display: flex;
+  height: 12vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+body>header a {
+  height: 70%;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#logout > * {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+}
+
+#logout a {
+  text-decoration: none;
+  color: white;
+
+}
+
+#logout a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+body>header a img {
+  height: 100%;
+  margin-left: 10px;
+}
+.upper-left {
+  grid-area: upperLeft;
+}
+.bottom-left {
+  grid-area: bottomLeft;
+}
+.new-order {
+  grid-area: right1;
+}
+.my-orders {
+  grid-area: right2;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "upperLeft right1  right2  "
+    "bottomLeft right1 right2 "
+    "bottomLeft right1 right2 ";
+  gap: 1rem;
+  height: 80vh;
+  padding: 2rem;
+}
+
+.grid-container > section {
+  text-align: center;
+  font-size: 30px;
+  background-color: white;
+  border: 2px solid #8fbc8f;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #8fbc8f;
+}
+
+.upper-left {
+  height: 100%;
+}
+
+.upper-left article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+}
+
+.upper-left article > * {
+  padding: 0.25rem 0;
+}
+
+.upper-left h5 {
+  font-weight: 600;
+}
+
+.upper-left p {
+  font-size: 1.5rem;
+}
+
+.profile-picture {
+  width: 12rem;
+  height: auto;
+  border-radius: 50%;
+}
+.bottom-left header {
+  display: flex;
+  height: 10%;
+  align-items: center;
+  justify-content: center;
+  flex: 0.2;
+}
+.bottom-left h3 {
+  color: white;
+  font-size: smaller;
+  text-align: center;
+}
+
+.bottom-left article {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+}
+
+ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+li {
+  margin: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+}
+
+li b {
+  font-size: 1.2rem;
+}
+
+li span {
+  font-size: 1.2rem;
+  color: rgba(100, 100, 100);
+}
+
+.new-order {
+  background-image: url("./assets/new_order_background.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+.new-order article {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-order article p {
+  margin-top: 10rem;
+  font-size: 1.5rem;
+  width: 30rem;
+  color: white;
+}
+
+.new-order article a {
+  margin-bottom: 5rem;
+  margin-top: 3rem;
+}
+
+
+.new-order article a button {
+  width: 15rem;
+  height: 3rem;
+  background-color: #8fbc8f;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.new-order article button:hover {
+  height: 3rem;
+  background-color: rgba(143, 188, 143, 0.3);
+  border: 1px solid #8fbc8f;
+}
+.new-order article button:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.my-orders {
+  background-image: url("./assets/my_orders_background.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+
+.my-orders article {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-orders article p {
+  margin-top: 10rem;
+  font-size: 1.5rem;
+  width: 30rem;
+  color: white;
+}
+
+.my-orders article a {
+  margin-bottom: 5rem;
+  margin-top: 3rem;
+}
+
+.my-orders article button {
+  width: 15rem;
+  height: 3rem;
+  background-color: #8fbc8f;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.my-orders article button:hover {
+  width: 50%;
+  height: 3rem;
+  background-color: rgba(143, 188, 143, 0.3);
+  border: 1px solid #8fbc8f;
+}
+.my-orders article button:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}

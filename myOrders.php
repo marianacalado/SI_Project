@@ -1,3 +1,12 @@
+<?php
+  session_start();
+
+  //require('database/conection.php'); 
+
+  // $msg= $SESSION ["msg"];
+  // unset($SESSION ["msg"]);//apagar o atributo sessao 
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -10,9 +19,9 @@
 
   <header>
     <!-- Cabeçalho da página: Navbar-->
-    <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+    <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
     <div id="logout">
-      <a href="./init_page.html">Logout</a>
+      <a href="./init_page.php">Logout</a>
     </div>
   </header>
 

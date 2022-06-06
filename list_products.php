@@ -1,7 +1,7 @@
 <!-- <?php
+  session_start();
   require('database/conection.php');
-  require('list_products.php');
-   
+     
 ?> -->
 
 <!DOCTYPE html>
@@ -11,14 +11,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="products.css" rel="stylesheet" />
+    <link href="list_products.css" rel="stylesheet" />
   </head>
   
   <body>
     <header>
-        <a href="./init_page.html"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+        <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
         <div id="logout">
-          <a href="./init_page.html">Logout</a>
+          <a href="./init_page.php">Logout</a>
         </div>
     </header>
     <div>
@@ -26,21 +26,21 @@
             <ul>
               <!-- <?php foreach ($categories as $row) { ?>
                 <li>
-                  <a href="list_products.html?id_category="><?php echo $row["id"] ?></a>
+                  <a href="list_products.php?id_category="><?php echo $row["id"] ?></a>
                 </li>
               <?php }?> vai substituir a lista de categorias em html  -->
               <li class="sidebar-title">Medicines subject to medical prescription</li>
-              <li class="categorias"><a href="./NewOrder.html">Register Prescription</a></li>
+              <li class="categorias"><a href="./NewOrder.php">Register Prescription</a></li>
               <li class="sidebar-title">Medicines not subject to medical prescription</li>
-              <li class="categorias"><a href="./products.html">Beauty & Hygiene</a></li>
-              <li class="categorias"><a href="./products.html">Personal Care</a></li>
-              <li class="categorias"><a href="./products.html">Medicines</a></li>
-              <li class="categorias"><a href="./products.html">Food Suplements & Nutricion</a></li>
-              <li class="categorias"><a href="./products.html">Contraception & Intimate Products</a></li>
-              <li class="categorias"><a href="./products.html">Covid-19</a></li>
-              <li class="categorias"><a href="./products.html">Medical Equipment</a></li>
-              <li class="categorias"><a href="./products.html">Animal Care</a></li>
-              <li class="categorias"><a href="./products.html">Orthopedic Products</a></li>
+              <li class="categorias"><a href="./list_products.php">Beauty & Hygiene</a></li>
+              <li class="categorias"><a href="./list_products.php">Personal Care</a></li>
+              <li class="categorias"><a href="./list_products.php">Medicines</a></li>
+              <li class="categorias"><a href="./list_products.php">Food Suplements & Nutricion</a></li>
+              <li class="categorias"><a href="./list_products.php">Contraception & Intimate Products</a></li>
+              <li class="categorias"><a href="./list_products.php">Covid-19</a></li>
+              <li class="categorias"><a href="./list_products.php">Medical Equipment</a></li>
+              <li class="categorias"><a href="./list_products.php">Animal Care</a></li>
+              <li class="categorias"><a href="./list_products.php">Orthopedic Products</a></li>
             </ul>
         </nav>
         <section class="main-container">

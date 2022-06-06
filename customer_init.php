@@ -1,10 +1,10 @@
 <?php
   session_start();
 
-  if (!isset($_SESSION["username"])) {
-    $_SESSION["msg"] = "Please login.";
-    header("Location: init_page.php");
-  }
+  // if (!isset($_SESSION["username"])) {
+  //   $_SESSION["msg"] = "Please login.";
+  //   header("Location: init_page.php");
+  // }
 
   //require('database/conection.php'); 
 
@@ -57,10 +57,9 @@
       <section class="new-order">
         <article>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae modi
-            natus maxicorrupti id.
+            Place your orders in a single click.
           </p>
-          <a href="./NewOrder.html"> 
+          <a href="./NewOrder.php"> 
             <button>Order Now</button>
           </a>
         </article>
@@ -68,12 +67,11 @@
       <section class="my-orders">
         <article>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae modi
-            natus maxime veritatis explicabo? Accusamus veniam deleniti magnam
-            omnis, repellendus tempora voluptates assumenda natus aliquid
-            repellat delectus pariatur, corrupti id.
+            Check the status of your order.
           </p>
-          <button>My Orders</button>
+          <a href="./myOrders.php"> 
+            <button>My Orders</button>
+          </a>
         </article>
       </section>
     </div>
