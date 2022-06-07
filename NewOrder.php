@@ -53,7 +53,7 @@
           <section class="input-container">
 
             <form action="action_prescription.php" method="post">
-              <label for="prescription">Prescription Number <span>*</span> </label>
+              <label for="prescription">Prescription Id Number <span>*</span> </label>
               <input type="text" id="prescription" name ="id_prescription" required />
 
               <label for="benf">Beneficiary Name <span>*</span> </label>

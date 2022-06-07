@@ -6,12 +6,11 @@
         global $dbh; //definir como variavel global
         global $result;
         $stmt = $dbh->prepare('SELECT * FROM Customer WHERE e_mail = ? AND password = ?'); //selecionar todos os clientes
-        $stmt->execute(array($email, sha1($password)));  
+        $stmt->execute(array($email, $password));  
         $result = $stmt->fetch(); //ou falso ou array que retorna linha caso seja válido
-        $_SESSION["cena"] = $result; //print db
         if($result == false) {
             $stmt = $dbh->prepare('SELECT * FROM Employee WHERE e_mail = ? AND password = ?'); //selecionar todos os clientes
-            $stmt->execute(array($email, sha1($password)));  
+            $stmt->execute(array($email, $password));  
             $result = $stmt->fetch();
             if($result != false) {
                 $result["role"] = "emp";
@@ -24,21 +23,42 @@
         return $result;  
     }
 
+
+    // function validateUser($uid, $pass) {
+    //     global $db;
+    //     $stmt = $db->prepare('SELECT * FROM User WHERE username = :username');
+    //     $stmt->bindParam(':username', $uid, PDO::PARAM_STR);
+    //     $stmt->execute();
+    //     $user = $stmt->fetch();
+
+    //     if ($user !== false && password_verify($pass, $user['password']))
+    //         return $user;
+        
+    //     return false;
+    // }
+
     //registo----------------------------
-    function getUserIdByEmail($email){
+    //Função que faz o insert de um novo customer 
+    function insertUser($name, $phone_number, $email,  $address, $city, $password, $vat_num, $role) //Falta verificar role
+    {
+        global $dbh; //definir como variavel global
+        $stmt = $dbh->prepare('INSERT INTO Customer (name, phone_num, e_mail, address, city, password, VAT_num, role) VALUES (?,?,?,?,?,?,?,?)');
+        $stmt->execute(array($name, $phone_number, $email,  $address, $city, sha1($password), $vat_num, $role));  //role tem valor de cust como um empl nao e preciso de se registar
+    }
+
+    function getLastUser () {
         global $dbh;
-        $stmt = $dbh->prepare('SELECT id_customer from Customer where e_mail = ?');
-        $stmt->execute(array($email));//executa query na base de dados 
+        $stmt = $dbh->prepare('SELECT * FROM Customer ORDER BY id_customer DESC LIMIT ?');
+        $stmt->execute(array(1));
         return $stmt->fetch();
     }
 
-    //Função que faz o insert de um novo customer 
-    function insertUser($customer_id, $name, $phone_number, $email,  $address, $city, $password, $vat_num, $role) //Falta verificar role
-    {
-        global $dbh; //definir como variavel global
-        $stmt = $dbh->prepare('INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num, role) VALUES (?,?,?,?,?,?,?,?,?)');
-        $stmt->execute(array($customer_id, $name, $phone_number, $email,  $address, $city, sha1($password), $vat_num, $role));  //role tem valor de cust como um empl nao e preciso de se registar
-    }
+     // function getUserIdByEmail($email){
+    //     global $dbh;
+    //     $stmt = $dbh->prepare('SELECT id_customer from Customer where e_mail = ?');
+    //     $stmt->execute(array($email));//executa query na base de dados 
+    //     return $stmt->fetch();
+    // }
 
         // //Function that get the last inserted member id 
     // function getLastInsertedId()

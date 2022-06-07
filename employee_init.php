@@ -1,10 +1,7 @@
 <?php
   session_start();
-  //require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
-  
+  require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
 
-  // $msg= $SESSION ["msg"];
-  // unset($SESSION ["msg"]);//apagar o atributo sessao 
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +14,17 @@
     <link href="./employee_init.css" rel="stylesheet" />
   </head>
 
-  <header>
-    <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
-    <div id="logout">
-      <a href="./init_page.php">Logout</a>
-    </div>
-  </header>
-
   <body>
+    <header>
+      <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+      <!-- <div id="logout">
+        <a href="./init_page.php">Logout</a>
+      </div> -->
+      <form id="logout" action="action_logout.php">
+        <span><?php echo $_SESSION["email"] ?></span>
+        <input type="submit" value="Logout">
+      </form>
+    </header>
     <div class="grid-container">
       <section>
         <section class="upper-left">

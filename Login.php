@@ -10,11 +10,9 @@
       header("Location: employee_init.php");
     } 
   }
-  
 
+  $_SESSION["msg"] = "Please login.";
   $msg = $_SESSION["msg"];
-  unset($_SESSION["msg"]);
-  $cena = $_SESSION["cena"];
 ?>
 
 <!DOCTYPE html>

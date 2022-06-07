@@ -2,12 +2,21 @@ PRAGMA foreign_keys = ON;
 .headers on 
 .mode columns 
 .nullvalue NULL
-
---Employee   
+  
 DROP TABLE IF EXISTS Employee;
- 
+DROP TABLE IF EXISTS Customer;
+DROP TABLE IF EXISTS Suplier;
+DROP TABLE IF EXISTS Product;
+DROP TABLE IF EXISTS SupProduct;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS OrdersProduct;
+DROP TABLE IF EXISTS Category;
+DROP TABLE IF EXISTS Brand;
+DROP TABLE IF EXISTS Prescription;
+
+--Employee 
 CREATE TABLE Employee(
-    id_employee INTEGER PRIMARY KEY,
+    id_employee INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     phone_num INTEGER NOT NULL UNIQUE,
     e_mail TEXT NOT NULL UNIQUE,
@@ -17,10 +26,8 @@ CREATE TABLE Employee(
 );
 
 --Customer   
-DROP TABLE IF EXISTS Customer;
- 
 CREATE TABLE Customer(
-    id_customer INTEGER PRIMARY KEY,
+    id_customer INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     phone_num INTEGER NOT NULL UNIQUE,
     e_mail TEXT NOT NULL UNIQUE,
@@ -32,21 +39,29 @@ CREATE TABLE Customer(
 );
 
 --Suplier
-DROP TABLE IF EXISTS Suplier;
- 
 CREATE TABLE Suplier(
-    id_suplier INTEGER PRIMARY KEY,
+    id_suplier INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     phone_num INTEGER NOT NULL UNIQUE,
     e_mail TEXT NOT NULL UNIQUE,
     address TEXT 
 );
 
+--Category
+CREATE TABLE Category(
+    id_category INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
+--Brand
+CREATE TABLE Brand(
+    id_brand INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
 --Product
-DROP TABLE IF EXISTS Product;
- 
 CREATE TABLE Product(
-    id_product INTEGER PRIMARY KEY,
+    id_product INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     unit_price REAL NOT NULL CONSTRAINT product_price_must_be_superior_0 CHECK (unit_price > 0),
     description TEXT NOT NULL,
@@ -56,20 +71,16 @@ CREATE TABLE Product(
 );
 
 --SupProduct
-DROP TABLE IF EXISTS SupProduct;
- 
 CREATE TABLE SupProduct(
     suplier_id INTEGER REFERENCES Suplier,
     product_id INTEGER REFERENCES Product,
     --quantity INTEGER NOT NULL CONSTRAINT quantity_must_be_superior_0 CHECK (quantity > 0), JÁ NAO VAI SER NECESSÁRIO
-    PRIMARY KEY (suplier_id, product_id)
+    PRIMARY KEY (suplier_id, product_id) 
 );
 
 --Orders
-DROP TABLE IF EXISTS Orders;
-
 CREATE TABLE Orders(
-    id_order INTEGER PRIMARY KEY,
+    id_order INTEGER PRIMARY KEY AUTOINCREMENT,
     date TEXT NOT NULL,
     delv_address TEXT NOT NULL,
     customer_id INTEGER NOT NULL REFERENCES Customer,
@@ -78,8 +89,6 @@ CREATE TABLE Orders(
 );
 
 --OrdersProduct
-DROP TABLE IF EXISTS OrdersProduct;
-
 CREATE TABLE OrdersProduct(
     order_id INTEGER REFERENCES Orders,
     product_id INTEGER REFERENCES Product,
@@ -87,27 +96,9 @@ CREATE TABLE OrdersProduct(
     PRIMARY KEY (order_id, product_id)
 );
 
---Category
-DROP TABLE IF EXISTS Category;
-
-CREATE TABLE Category(
-    id_category INTEGER PRIMARY KEY,
-    name TEXT NOT NULL
-);
-
---Brand
-DROP TABLE IF EXISTS Brand;
-
-CREATE TABLE Brand(
-    id_brand INTEGER PRIMARY KEY,
-    name TEXT NOT NULL
-);
-
 --Prescription
-DROP TABLE IF EXISTS Prescription;
-
 CREATE TABLE Prescription (
-    id_prescription INTEGER PRIMARY KEY,
+    id_prescription INTEGER PRIMARY KEY AUTOINCREMENT,
     doct_name TEXT NOT NULL,
     benf_name TEXT NOT NULL,
     product_id INTEGER NOT NULL REFERENCES Product,
@@ -118,12 +109,12 @@ CREATE TABLE Prescription (
 --Inserts---------------------------------------------------
 -- Employee   
 INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (1, 'Mariana Calado', 912345678,'up202003072@fe.up.pt', 'R. do Visc. de Setúbal 328, 4200-498 Porto','mariana12%','emp');
-INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (2, 'Susana Teixeira', 922345678, 'up202103376@fe.up.pt', 'Av. Visc. de Barreiros EDF Maia Luz , lote 36 , primeiro andar, 4470-151 Maia','susana12%','emp');
-INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (3, 'Marco António', 932345678, 'marco_ant@gmail.com', 'Av. da França 20, 4050-275 Porto','mmarco12%','emp');
-INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (4, 'Carlos David', 962345678, 'carlos_dav@hotmail.com', 'Rua do Campo Alegre 254, 4150-169 Porto','davis13%','emp');
-INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (5, 'Carolina Rita', 913345679, 'rita_carol9@gmail.com', 'R. do Barão de Forrester 862, 4050-273 Porto','carol13%','emp');
-INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (6, 'Ana Alves', 912345671, 'ana_alves23@gmail.com', 'Pça da Concórdia 49, 4465-092 São Mamede de Infesta','alves12%','emp');
-INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (7, 'Gonçalo Aguiar', 912345672, 'gonçalo_a@gmail.com', 'Tv. da Concórdia 61, 4465-040 São Mamede de Infesta','aguiar13%','emp');--este nao trata de encomendas
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (2, 'Susana Teixeira', 922345678, 'up202103376@fe.up.pt', 'Av. Visc. de Barreiros EDF Maia Luz , lote 36 , primeiro andar, 4470-151 Maia','susana12%','emp');--susana12%
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (3, 'Marco António', 932345678, 'marco_ant@gmail.com', 'Av. da França 20, 4050-275 Porto','mmarco12%','emp');--mmarco12%
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (4, 'Carlos David', 962345678, 'carlos_dav@hotmail.com', 'Rua do Campo Alegre 254, 4150-169 Porto','davis13%','emp');--davis13%
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (5, 'Carolina Rita', 913345679, 'rita_carol9@gmail.com', 'R. do Barão de Forrester 862, 4050-273 Porto','carol13%','emp');--carol13%
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (6, 'Ana Alves', 912345671, 'ana_alves23@gmail.com', 'Pça da Concórdia 49, 4465-092 São Mamede de Infesta','alves12%','emp');--alves12%
+INSERT INTO Employee (id_employee, name, phone_num, e_mail, address, password, role) VALUES (7, 'Gonçalo Aguiar', 912345672, 'gonçalo_a@gmail.com', 'Tv. da Concórdia 61, 4465-040 São Mamede de Infesta','aguiar13%','emp');--este nao trata de encomendas--aguiar13%
 
 --Customer   
 INSERT INTO Customer (id_customer, name, phone_num, e_mail, address, city, password, VAT_num, role) VALUES (1, 'Roberto Carlos', 912345673,'roberto1@gmail.pt','R. Direita do Viso 120, 4250-198 Porto', 'Porto','roberto_bolo1', 215667674,'cust'); -- nao vai fazer encomenda 
@@ -285,8 +276,3 @@ INSERT INTO OrdersProduct (order_id, product_id) VALUES (10, 23);
 --Prescription
 INSERT INTO Prescription (id_prescription, doct_name, benf_name, product_id, order_id) VALUES (1, 'Tiago rodrigues', 'Manuel Pinto' ,16, 9);
 INSERT INTO Prescription (id_prescription, doct_name, benf_name, product_id, order_id) VALUES (2, 'Vitor Olavo', 'José Pinto' ,17, 10);
-
--- TESTE What are the names and locations of all costumers? (name, city)
---SELECT name, city FROM Customer; --selecionar as colunas (name, city) da tabela 
-
---SELECT * FROM Products, Category WHERE id_category = category_id; //quero selecionar todos os produtos da categoria 1

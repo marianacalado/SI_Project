@@ -4,6 +4,7 @@
   require('database/conection.php');
   require('database/customer_emp.php'); 
   
+
   $name = $_POST["name"];
   $email = $_POST["e_mail"];
   $vat_num = $_POST["VAT_num"];
@@ -11,11 +12,12 @@
   $city = $_POST["city"];
   $address = $_POST["address"];
   $password = $_POST["password"];
+  $_SESSION["adress"] = $address; 
   $role = "cust"; //só se pode registar customers 
 
   //$array = getLastInsertedId();
   //$customer_id = getNewPersonId($array); //a pessoa tem de se registar
-  $customer_id = getUserIdByEmail($email);
+  //$customer_id = getUserIdByEmail($email);
 
   //checks de tudo 
   if (strlen($name) == 0) {
@@ -30,13 +32,14 @@
     die();
   }
   
-  if (len($vat_num) == 0) {
+  //converter isto 
+  if (strlen($vat_num) == 0) {
     $_SESSION["msg"] = "Please insert your Vat Number with 9 numbers!";
     header("Location: Register.php");
     die();
   }
 
-  if (len($phone_number) == 0) {
+  if (strlen($phone_number) == 0) {
     $_SESSION["msg"] = "Please insert your Phone Number!";
     header("Location: Register.php");
     die();
@@ -60,9 +63,9 @@
     die();
   }
 
-  //{UNIQUE (VAT_num, phone_num, e-mail)} 
   try {
-    insertUser($customer_id, $name, $phone_number, $email,  $address, $city, $password, $vat_num, $role); 
+    //$lastUserid = getLastUser ()['id_customer']+1;
+    insertUser($name, $phone_number, $email,  $address, $city, $password, $vat_num, $role); 
     $_SESSION["msg"] = "Registration Successful!";
     header('Location: customer_init.php');
   } catch(PDOException $e) {

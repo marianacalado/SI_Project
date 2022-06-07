@@ -1,15 +1,12 @@
 <?php
   session_start();
 
-  // if (!isset($_SESSION["username"])) {
+  // if (!isset($_SESSION["email"]) ) {
   //   $_SESSION["msg"] = "Please login.";
   //   header("Location: init_page.php");
   // }
 
-  require('database/conection.php'); 
-
-  $msg= $SESSION ["msg"];
-  unset($SESSION ["msg"]);//apagar o atributo sessao 
+  // require('database/conection.php'); 
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -27,7 +24,9 @@
       <div id="logout">
         <a href="./init_page.php">Logout</a>
       </div>
-      <!-- <p><?php echo $msg?></p> para aparecer mensagem que se registou! -->
+      <?php if (isset($msg)) { ?>
+        <p><?php echo $msg ?></p>
+      <?php } ?>
     </header>
     <div class="grid-container">
       <section>
