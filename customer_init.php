@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>MyPharmaProfile</title>
+    <title>CustomerProfile</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,9 +21,13 @@
   <body>
     <header>
       <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
-      <div id="logout">
+      <!-- <div id="logout">
         <a href="./init_page.php">Logout</a>
-      </div>
+      </div> -->
+      <form id="logout" action="action_logout.php">
+        <span><?php echo $_SESSION["email"] ?></span>
+        <input type="submit" value="Logout">
+      </form>
       <?php if (isset($msg)) { ?>
         <p><?php echo $msg ?></p>
       <?php } ?>

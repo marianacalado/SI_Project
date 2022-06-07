@@ -6,11 +6,11 @@
         global $dbh; //definir como variavel global
         global $result;
         $stmt = $dbh->prepare('SELECT * FROM Customer WHERE e_mail = ? AND password = ?'); //selecionar todos os clientes
-        $stmt->execute(array($email, $password));  
+        $stmt->execute(array($email, sha1($password)));  
         $result = $stmt->fetch(); //ou falso ou array que retorna linha caso seja válido
         if($result == false) {
             $stmt = $dbh->prepare('SELECT * FROM Employee WHERE e_mail = ? AND password = ?'); //selecionar todos os clientes
-            $stmt->execute(array($email, $password));  
+            $stmt->execute(array($email, sha1($password)));  
             $result = $stmt->fetch();
             if($result != false) {
                 $result["role"] = "emp";

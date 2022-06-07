@@ -24,18 +24,18 @@ body>header a {
   margin-bottom: 10px;
 }
 
-#logout > * {
+body> header> form > * {
   padding: 0 1rem;
   font-size: 1.5rem;
 }
 
-#logout a {
+#logout input{
   text-decoration: none;
   color: white;
 
 }
 
-#logout a:hover {
+#logout input:hover {
   text-decoration: none;
   cursor: pointer;
   color: black;
