@@ -42,8 +42,8 @@
           <label id="label1" for="email">Email</label>
           <input type="text" id="email" name ="email" required>
 
-          <label id="label2" for="password_">Password</label>
-          <input type="password" id ="password_" name ="password_" required>
+          <label id="label2" for="password">Password</label>
+          <input type="password" id ="password" name ="password" required>
   
           <button type="submit">Login</button>  
 

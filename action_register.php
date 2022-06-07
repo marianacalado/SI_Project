@@ -15,7 +15,7 @@
 
   //$array = getLastInsertedId();
   //$customer_id = getNewPersonId($array); //a pessoa tem de se registar
-  $customer_id = getUserIdByEmail($email)['id_customer'];
+  $customer_id = getUserIdByEmail($email);
 
   //checks de tudo 
   if (strlen($name) == 0) {

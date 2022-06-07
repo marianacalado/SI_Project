@@ -1,7 +1,7 @@
 <?php 
     require('database/conection.php');
     
-    //Function que verifica se o login é valido--login
+    //Login----------------------
     function loginIsValid($email, $password) {
         global $dbh; //definir como variavel global
         global $result;
@@ -21,24 +21,8 @@
             $result["role"] = "cust";
         }
 
-        return $result;
-        
+        return $result;  
     }
-
-    // function getLastUser () {
-    //     global $dbh;
-    //     $stmt = $dbh->prepare('SELECT * FROM user 
-    //                           ORDER BY id DESC LIMIT ?');
-    //     $stmt->execute(array(1));
-    //     return $stmt->fetch();
-    // }
-    
-    // function getUserById ($userid){
-    //     global $dbh;
-    //     $stmt = $dbh->prepare('SELECT * FROM Costumer WHERE id = ?');
-    //     $stmt->execute(array($costumer_id));
-    //     return $stmt->fetch();
-    // }
 
     //registo----------------------------
     function getUserIdByEmail($email){
@@ -85,30 +69,21 @@
     //     return $stmt->fetchAll();
     // }
 
-    // function getStaff(){
+        // function getLastUser () {
     //     global $dbh;
-    //     $stmt = $dbh->prepare('SELECT * FROM Person WHERE person_id LIKE "PT%" OR person_id LIKE "NT%" OR person_id LIKE "CW%" OR person_id LIKE "MW%" ');
-    //     $stmt->execute();
-    //     return $stmt->fetchAll();
+    //     $stmt = $dbh->prepare('SELECT * FROM user 
+    //                           ORDER BY id DESC LIMIT ?');
+    //     $stmt->execute(array(1));
+    //     return $stmt->fetch();
+    // }
+    
+    // function getUserById ($userid){
+    //     global $dbh;
+    //     $stmt = $dbh->prepare('SELECT * FROM Costumer WHERE id = ?');
+    //     $stmt->execute(array($costumer_id));
+    //     return $stmt->fetch();
     // }
 
-    // function getProfessionals($id_info) {
-    //     global $dbh;
-    //     switch ($id_info){
-    //         case "PT":
-    //             $stmt = $dbh->prepare('SELECT * FROM Person WHERE person_id LIKE "PT%"');
-    //             break;
-    //         case "PE":
-    //             $stmt = $dbh->prepare('SELECT * FROM Person WHERE person_id LIKE "PT%"');
-    //             break;
-    //         case "NS":
-    //             $stmt = $dbh->prepare('SELECT * FROM Person WHERE person_id LIKE "NT%"');
-    //             break;    
-    //     }
-            
-    //     $stmt->execute();
-    //     return $stmt->fetchAll();
-    // }
     
 
 ?>

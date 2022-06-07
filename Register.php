@@ -35,18 +35,18 @@
                     
                     <div>
                         <label for="email">Email <span>*</span> </label>
-                        <input id = "email" name ="email" type="email" required/>
+                        <input id = "email" name ="e_mail" type="email" required/>
                     </div>
 
                     <div>
-                        <label for="VATnumber">VAT number <span>*</span> </label>
-                        <input id = "vat_num" name ="VAT number" type="text" required/>
+                        <label for="vat_num">VAT number <span>*</span> </label>
+                        <input id = "vat_num" name ="VAT_num" type="text" required/>
                     </div>
                     
                     <div id = "container1">
                         <div>
                             <label for="phoneNumber">Phone Number <span>*</span> </label>
-                            <input id = "phoneNumber" name ="phoneNumber" type="tel" required/>
+                            <input id = "phoneNumber" name ="phone_num" type="tel" required/>
                         </div>
 
                         <div>
@@ -73,7 +73,7 @@
                 </form> 
 
                 <?php if (isset($msg)) { ?>
-                <p class = "msg"><?php echo $msg ?></p> <!--  pode se por bonito em css para aparecer mensagem que nao se registou! -->
+                    <p class = "msg"><?php echo $msg ?></p>  
                 <?php } ?>
 
             </div>

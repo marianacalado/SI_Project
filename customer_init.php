@@ -6,10 +6,10 @@
   //   header("Location: init_page.php");
   // }
 
-  //require('database/conection.php'); 
+  require('database/conection.php'); 
 
-  // $msg= $SESSION ["msg"];
-  // unset($SESSION ["msg"]);//apagar o atributo sessao 
+  $msg= $SESSION ["msg"];
+  unset($SESSION ["msg"]);//apagar o atributo sessao 
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
