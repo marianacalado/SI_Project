@@ -73,11 +73,16 @@
   align-items: center;
   justify-content: center;
   flex: 0.2;
+  color: black;
 }
-.bottom-left h3 {
-  color: white;
+
+.bottom-left header h3 {
   font-size: smaller;
   text-align: center;
+  color: white;
+  background-color: #8fbc8f;
+  width: 100%;
+  
 }
 
 .bottom-left article {

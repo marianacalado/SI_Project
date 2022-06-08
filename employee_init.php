@@ -14,7 +14,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./employee_init.css" rel="stylesheet" />
+    <link href="employee_init.css" rel="stylesheet" />
     <link href="footer.css" rel="stylesheet" />
     <link href="header2.css" rel="stylesheet" />
   </head>
