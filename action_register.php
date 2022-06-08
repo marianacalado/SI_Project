@@ -17,7 +17,6 @@
 
   //$array = getLastInsertedId();
   //$customer_id = getNewPersonId($array); //a pessoa tem de se registar
-  //$customer_id = getUserIdByEmail($email);
 
   //checks de tudo 
   if (strlen($name) == 0) {
@@ -31,8 +30,7 @@
     header("Location: Register.php");
     die();
   }
-  
-  //converter isto 
+
   if (strlen($vat_num) == 0) {
     $_SESSION["msg"] = "Please insert your Vat Number with 9 numbers!";
     header("Location: Register.php");

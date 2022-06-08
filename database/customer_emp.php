@@ -23,20 +23,6 @@
         return $result;  
     }
 
-
-    // function validateUser($uid, $pass) {
-    //     global $db;
-    //     $stmt = $db->prepare('SELECT * FROM User WHERE username = :username');
-    //     $stmt->bindParam(':username', $uid, PDO::PARAM_STR);
-    //     $stmt->execute();
-    //     $user = $stmt->fetch();
-
-    //     if ($user !== false && password_verify($pass, $user['password']))
-    //         return $user;
-        
-    //     return false;
-    // }
-
     //registo----------------------------
     //Função que faz o insert de um novo customer 
     function insertUser($name, $phone_number, $email,  $address, $city, $password, $vat_num, $role) //Falta verificar role
@@ -53,6 +39,25 @@
         return $stmt->fetch();
     }
 
+    //---------------------------------------------
+    function getCustomerByEmail(){
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM Customer WHERE e_mail=?');
+        $stmt->execute(array($_SESSION["email"]));
+        return $stmt->fetch();
+    }
+
+    function getEmployeeByEmail(){
+        global $dbh;
+        $stmt = $dbh->prepare('SELECT * FROM Employee WHERE e_mail=?');
+        $stmt->execute(array($_SESSION["email"]));
+        return $stmt->fetch();
+    }
+
+
+
+
+    
      // function getUserIdByEmail($email){
     //     global $dbh;
     //     $stmt = $dbh->prepare('SELECT id_customer from Customer where e_mail = ?');

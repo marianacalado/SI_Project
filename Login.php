@@ -11,8 +11,6 @@
     } 
   }
 
-  $_SESSION["msg"] = "Please login.";
-  $msg = $_SESSION["msg"];
 ?>
 
 <!DOCTYPE html>
@@ -23,14 +21,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="Login.css" rel="stylesheet" />
+    <link href="footer.css" rel="stylesheet" />
   </head>
 
   <body>
     <header>
       <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
-      <?php if (isset($msg)) { ?>
-        <p><?php echo $msg ?></p>
-      <?php } ?> 
     </header>
     <div class = "section1">
       <article>
@@ -49,6 +45,7 @@
         </form>
       </article>   
     </div>
+    <?php include('./template/footer_tem.php');?>
   </body>
 </html>
  

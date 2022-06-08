@@ -1,6 +1,9 @@
 <?php
   session_start();
-  require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
+  require('database/conection.php');
+  require('database/customer_emp.php');
+
+  $employee = getEmployeeByEmail();
 
 ?>
 
@@ -12,26 +15,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./employee_init.css" rel="stylesheet" />
+    <link href="footer.css" rel="stylesheet" />
+    <link href="header2.css" rel="stylesheet" />
   </head>
 
   <body>
-    <header>
-      <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
-      <!-- <div id="logout">
-        <a href="./init_page.php">Logout</a>
-      </div> -->
-      <form id="logout" action="action_logout.php">
-        <span><?php echo $_SESSION["email"] ?></span>
-        <input type="submit" value="Logout">
-      </form>
-    </header>
+    <?php include('./template/header2_tem.php');?>
     <div class="grid-container">
       <section>
         <section class="upper-left">
           <article>
             <img class="profile-picture" src="./assets/perfil.jpg" />
             <h5>Employee Number</h5>
-            <p>612312312</p>
+            <p><?php echo $employee['id_employee']?></p>
           </article>
         </section>
       </section>
@@ -39,13 +35,9 @@
         <header><h3>Personal Information</h3></header>
         <article>
           <ul>
-            <li>
-              <b>Name</b>
-              <span>asdasdas</span>
-            </li>
-            <li><b>Email</b> <span>dqwdqwd@fww.com</span></li>
-            <li><b>Phone Number</b> <span>99999999999</span></li>
-            <li><b>Address</b> <span>street ewqeqwewq</span></li>
+            <li><b>Name: </b><span><?php echo $employee['name']?></span></li>
+            <li><b>Email: </b><span><?php echo $employee['e_mail']?></span></li>
+            <li><b>Phone Number: </b><span><?php echo $employee['phone_num']?></span></li>
           </ul>
         </article>
       </section>
@@ -73,5 +65,6 @@
        </article>
       </section>
     </div>
+    <?php include('./template/footer_tem.php');?>
   </body>
 </html>

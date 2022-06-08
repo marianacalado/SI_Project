@@ -1,10 +1,8 @@
 <?php
   session_start();
 
-  //require('database/conection.php'); 
+  require('database/conection.php'); 
 
-  // $msg= $SESSION ["msg"];
-  // unset($SESSION ["msg"]);//apagar o atributo sessao 
 ?>
 
 <!DOCTYPE html>
@@ -15,17 +13,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./myOrders.css" rel="stylesheet" />
+    <link href="footer.css" rel="stylesheet" />
+    <link href="header2.css" rel="stylesheet" />
   </head>
 
-  <header>
-    <!-- Cabeçalho da página: Navbar-->
-    <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
-    <div id="logout">
-      <a href="./init_page.php">Logout</a>
-    </div>
-  </header>
-
   <body>
+    <?php include('./template/header2_tem.php');?>
     <div class="grid-container">
       <section>
         <section class="upper-left">
@@ -77,5 +70,6 @@
       </article>
       </section>
     </div>
+    <?php include('./template/footer_tem.php');?>
   </body>
 </html>

@@ -1,8 +1,29 @@
-<!-- <?php
-  session_start();
-  require('database/conection.php');
-     
-?> -->
+<?php 
+  // session_start();
+  // require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
+  // require('database/category.php'); 
+  // require('database/product.php');
+
+  // $id_category= $_GET['id_category'];
+
+  // fuction getCategoryById($id_category) { //esta função vai a tabela das categorias logo por nas categorias 
+  //     global $dbh;
+  //     $stmt = $dbh->prepare('SELECT * FROM Category WHERE id_category=?'); 
+  //     $stmt->execute(array($id_category)); //executa da erro 
+  //     return $stmt->fetch()
+  // }
+
+  // $category = getCategoryById($id_category);
+
+  // fuction getProductsByCategoryId($id_category) { //por no file de products
+  //     global $dbh;
+  //     $stmt = $dbh->prepare('SELECT * FROM Product WHERE category_id=?'); //seleciona todos os produtos de uma determinada categoria 
+  //     $stmt->execute(array($id_category)); 
+  //     return $stmt->fetchAll()$products
+  // }
+
+  // $products= getProductsByCategoryId($id_category);
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -12,15 +33,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="list_products.css" rel="stylesheet" />
+    <link href="footer.css" rel="stylesheet" />
+    <link href="header2.css" rel="stylesheet" />
   </head>
   
   <body>
-    <header>
-        <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
-        <div id="logout">
-          <a href="./init_page.php">Logout</a>
-        </div>
-    </header>
+    <?php include('./template/header2_tem.php');?>
     <div>
         <nav id="menu">
             <ul>
@@ -105,5 +123,9 @@
             </section>
         </section>
     </div>
+    <?php include('./template/footer_tem.php');?>
   </body>
 </html>
+
+
+

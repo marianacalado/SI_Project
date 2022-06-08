@@ -1,0 +1,39 @@
+  body>header {
+    background-color: #8fbc8f;
+    display: flex;
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  body>header a {
+    height: 70%;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #logout > * {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+  }
+  
+  #logout a {
+    text-decoration: none;
+    color: white;
+  
+  }
+  
+  #logout a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+  }
+  
+  body>header a img {
+    height: 100%;
+    margin-left: 10px;
+  }

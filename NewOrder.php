@@ -2,9 +2,7 @@
   session_start();
   require('database/conection.php');
 
-  $msg= $SESSION ["msg"];
-
-   
+  $msg= $SESSION ["msg"];   
 ?>
 
 <!DOCTYPE html>
@@ -15,15 +13,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="NewOrder.css" rel="stylesheet" />
+    <link href="footer.css" rel="stylesheet" />
+    <link href="header2.css" rel="stylesheet" />
   </head>
   
   <body>
-    <header>
-      <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
-      <div id="logout">
-        <a href="./init_page.php">Logout</a>
-      </div>
-    </header>
+    <?php include('./template/header2_tem.php');?>
     <div>
         <nav id="menu">
           <ul>
@@ -71,5 +66,6 @@
           </section>
         </section>
     </div>
+    <?php include('./template/footer_tem.php');?>
   </body>
 </html>

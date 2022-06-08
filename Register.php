@@ -22,7 +22,6 @@
             <div id="signup">
             <a href="./Login.php">Login</a>
             </div>
-            <?php echo var_dump($_SESSION)?>
         </header>
         <section class = "section1">
             <div class = "div1">
