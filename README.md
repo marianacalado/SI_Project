@@ -17,6 +17,11 @@ Log in information for one of the employee users:
 email: up202103376@fe.up.pt
 Password: susana12%
 
+Log in information for one of the customer users:
+
+email: elsaw@gmail.com
+Password: elsa123
+
 
 Authors:
 Mariana Calado (up202003072)

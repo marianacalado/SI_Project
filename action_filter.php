@@ -9,7 +9,8 @@
   $id_suplier = $_GET["Supplier Select"];
   $id_brand = $_GET["Brand Select"];
   
-  if($id_suplier=="none" && $id_brand=="none"){
+  
+  if($id_suplier=="none" && $id_brand=="none" &&){
     $stmt = $dbh->prepare('SELECT * FROM Product'); 
     $stmt->execute(); 
     $result_ = $stmt->fetchAll();

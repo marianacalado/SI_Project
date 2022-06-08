@@ -19,12 +19,12 @@
 
   $products= getProductsByCategoryId($id_category);
 
-  $result_= $_SESSION["session_products"];
-  //unset
+  // $result_= $_SESSION["session_products"];
+  // //unset
 
-  // if (isset($_SESSION["session_products"])) {
-    
-  // }
+  if (isset($_SESSION["session_products"])) {
+    $result_= $_SESSION["session_products"];
+  }
 
 ?>
 
