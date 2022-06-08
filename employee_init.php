@@ -45,7 +45,6 @@
             </li>
             <li><b>Email</b> <span>dqwdqwd@fww.com</span></li>
             <li><b>Phone Number</b> <span>99999999999</span></li>
-
             <li><b>Address</b> <span>street ewqeqwewq</span></li>
           </ul>
         </article>

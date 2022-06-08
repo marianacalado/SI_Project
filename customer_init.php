@@ -1,12 +1,33 @@
 <?php
   session_start();
 
+  require('database/conection.php');
+
   // if (!isset($_SESSION["email"]) ) {
   //   $_SESSION["msg"] = "Please login.";
   //   header("Location: init_page.php");
   // }
 
-  // require('database/conection.php'); 
+  $stmt = $dbh->prepare('SELECT name FROM Customer WHERE id_customer=?');
+  $stmt->execute();
+  $name = $stmt->fetchAll();
+ 
+  $stmt = $dbh->prepare('SELECT e_mail FROM Customer WHERE id_customer=?');
+  $stmt->execute();
+  $email = $stmt->fetchAll();
+
+  $stmt = $dbh->prepare('SELECT phone_num FROM Customer WHERE id_customer=?');
+  $stmt->execute();
+  $phone_num = $stmt->fetchAll();
+
+  $stmt = $dbh->prepare('SELECT address FROM Customer WHERE id_customer=?');
+  $stmt->execute();
+  $address = $stmt->fetchAll();
+
+  $stmt = $dbh->prepare('SELECT VAT_num FROM Customer WHERE id_customer=?');
+  $stmt->execute();
+  $vat_num = $stmt->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -44,16 +65,14 @@
       </section>
       <section class="bottom-left">
         <header><h3>Personal Information</h3></header>
+         
         <article>
           <ul>
-            <li>
-              <b>Name</b>
-              <span>asdasdas</span>
-            </li>
-            <li><b>Email</b> <span>dqwdqwd@fww.com</span></li>
-            <li><b>Phone Number</b> <span>99999999999</span></li>
-            <li><b>Address</b> <span>street ewqeqwewq</span></li>
-            <li><b>Nif</b> <span>12313123</span></li>
+            <li><b>Name</b><span><?php echo $name[0]?></span></li>
+            <li><b>Email</b> <span><?php echo $email[0]?></span></li>
+            <li><b>Phone Number</b> <span><?php echo $phone_num ?></span></li>
+            <li><b>Address</b> <span><?php echo $address?></span></li>
+            <li><b>VAT Number</b> <span><?php echo $vat_num ?></span></li>
           </ul>
         </article>
       </section>
