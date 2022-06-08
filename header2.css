@@ -7,7 +7,6 @@
     align-items: center;
   }
   
-  
   body>header a {
     height: 70%;
     cursor: pointer;
@@ -19,19 +18,21 @@
   #logout > * {
     padding: 0 1rem;
     font-size: 1.5rem;
-  }
-  
-  #logout a {
-    text-decoration: none;
-    color: white;
-  
-  }
-  
-  #logout a:hover {
-    text-decoration: none;
+    color:white;
     cursor: pointer;
-    color: black;
+    background-color: transparent;
+    border-color: transparent;
   }
+
+  #logout:hover > * {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    color:black;
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  
   
   body>header a img {
     height: 100%;
