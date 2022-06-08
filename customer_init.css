@@ -204,11 +204,10 @@ li span {
 }
 
 .my-orders article button:hover {
-  width: 50%;
   height: 3rem;
-  background-color: rgba(143, 188, 143, 0.3);
+  background-color:rgba(143, 188, 143, 0.3);
   border: 1px solid #8fbc8f;
 }
-.my-orders article button:active {
+.my-orders article a button:active {
   background-color: rgba(0, 0, 0, 0.3);
 }
