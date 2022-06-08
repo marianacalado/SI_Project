@@ -35,8 +35,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="list_products.css" rel="stylesheet" />
-    <link href="footer.css" rel="stylesheet" />
+    <link href= "list_products.css" rel="stylesheet" />
     <link href="header2.css" rel="stylesheet" />
   </head>
   
@@ -85,11 +84,11 @@
                 <th>Price</th>
                 <th>Quantity</th><!-- temos de ver isto com o carrinho  -->
                 <th></th>
-                <tr>
-                  <?php foreach ($products as $row) { ?> 
+                <?php foreach ($products as $row) { ?> 
+                  <tr>
                     <td>
                       <p><?php echo $row["name"] ?></p>
-                      <img src="<?php echo $row['image_path']?>" alt= "image_product"> 
+                      <img src="<?php echo $row['image_path']?>" alt= "image_product" width="200"/> 
                     </td>
                     <td><p><?php echo $row["id_product"] ?></p></td>
                     <td><p><?php echo $row["description"] ?></p></td>
@@ -103,13 +102,12 @@
                         <input type="submit" value= "Add to cart">
                       </form>
                     </td>
-                  <?php }?> 
-                </tr>
+                  </tr>
+                <?php }?> 
               </table>
             </section>
         </section>
     </div>
-    <?php include('./template/footer_tem.php');?>
   </body>
 </html>
 
