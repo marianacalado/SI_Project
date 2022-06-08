@@ -4,30 +4,29 @@
     require('database/conection.php');
     require('database/customer_emp.php');
 
-    //get username and password from params:
+  
     $email = $_POST["email"];
     $password = $_POST["password"];
-    //$role; //aqui tenho de ver porque eu quero que os employees tenham acesso logo
-
-    #if o login for valido:
+    
+    
     if (loginIsValid($email, $password)) {
         global $result;
-        $_SESSION["email"] = $email;//-criar sessao para o user
+        $_SESSION["email"] = $email;
         if ($result["role"] == "cust") { 
-            $_SESSION["role"] = $result["role"]; //cria sessao
+            $_SESSION["role"] = $result["role"];
             header("Location: customer_init.php");
             exit();
         } 
         else 
         {
-            $_SESSION["role"] = $result["role"]; //cria sessao
+            $_SESSION["role"] = $result["role"]; 
             header("Location: employee_init.php"); 
             exit();
         }     
     }     
     else {
-        $_SESSION["msg3"] = "Login failed!";//-set error msg:"Login Failed!"
+        $_SESSION["msg3"] = "Login failed!";
     }
     
-    header("Location: Login.php");//-redirecionar para o login
+    header("Location: Login.php");
 ?>

@@ -2,10 +2,8 @@
   session_start();
   require('database/conection.php');
   require('database/category.php');
-  require('database/product.php');
-
+ 
   $categories = getCategory();
-  // $id_category= $_GET['id_category'];
   
 ?>
 

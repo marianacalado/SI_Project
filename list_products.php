@@ -1,9 +1,15 @@
 <?php 
   session_start();
-  require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
+
+  require('database/conection.php');
   require('database/category.php'); 
   require('database/product.php');
-  //require('database/suplier.php');
+  require('database/suplier.php');
+  require('database/brand.php');
+
+  $supliers = getSuplier();
+
+  $brands = getBrand();
 
   $categories = getCategory();
   
@@ -12,6 +18,13 @@
   $category = getCategoryById($id_category);
 
   $products= getProductsByCategoryId($id_category);
+
+  $result_= $_SESSION["session_products"];
+  //unset
+
+  // if (isset($_SESSION["session_products"])) {
+    
+  // }
 
 ?>
 
@@ -48,38 +61,22 @@
               <h3>Filter by</h3>
               <div class='select-container'>
 
-              <form id="Submit filter" action="action_filter.php">
-                <select>
-                  <option>---Supplier---</option>
-                  <option>Alconox</option>
-                  <option>Berkshire Corporation</option>
-                  <option>Celitron</option>
-                  <option>Drugsales</option>
-                  <option>Estima Pharma Solutions</option>
-                  <option>GE Healthcare Life Sciences</option> 
+              <form id="Submit filter" action="action_filter.php" method= "get">
+                <select name="Supplier Select">
+                  <option value= "none">---Supplier---</option>
+                  <?php foreach ($supliers as $row) { ?>
+                    <option value="<?php echo $row['id_suplier']; ?>"> <?php echo $row['name']; ?> </option>
+                  <?php }?> 
                 </select>
-                <select>
-                  <option>---Brand---</option>
-                  <option>Giorgio Armani</option>
-                  <option>Vichy</option>
-                  <option>La Roche Posay</option>
-                  <option>Sensilis</option>
-                  <option>Aposán</option>
-                  <option>Listerine</option>
-                  <option>Urgo</option>
-                  <option>Venixe</option>
-                  <option>Sargenor</option>
-                  <option>Bayer</option>
-                  <option>Niquitin</option>
-                  <option>Moreno</option>
-                  <option>Eucerin</option>
-                  <option>Durex</option>
-                  <option>Race</option>
+                <select name="Brand Select">
+                  <option value= "none">---Brand---</option>
+                  <?php foreach ($brands as $row) { ?>
+                    <option value="<?php echo $row['id_brand']; ?>"> <?php echo $row['name']; ?> </option>
+                  <?php }?> 
                 </select>
                 <input type="submit" value="Submit filter">
               </form>
-              
-              
+
               </div>
               <table>
                 <th>Image</th>
@@ -98,8 +95,11 @@
                     <td><p><?php echo $row["description"] ?></p></td>
                     <td><span class="price">€<?php echo $row["unit_price"]?></span></td>
                     <td>
-                      <form action="action_cart">
-                        <input type="number" value= "1" min=1>
+                      <form action="action_cart.php" method= "get">
+                        <input type="hidden" name= "id_product" value= "<?php echo $row["id_product"] ?>" >
+                        <input type="hidden" name= "name" value= "<?php echo $row["name"] ?>">
+                        <input type="hidden" name= "unit_price" value= "<?php echo $row["unit_price"] ?>">
+                        <input type="number" value= "1" min="1" name= "quantity">
                         <input type="submit" value= "Add to cart">
                       </form>
                     </td>

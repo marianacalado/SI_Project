@@ -1,10 +1,10 @@
 <?php 
 
     require('database/conection.php');
-    
-    function getProductsByCategoryId($id_category) { //por no file de products
+
+    function getProductsByCategoryId($id_category) { 
         global $dbh;
-        $stmt = $dbh->prepare('SELECT * FROM Product WHERE category_id=?'); //seleciona todos os produtos de uma determinada categoria 
+        $stmt = $dbh->prepare('SELECT * FROM Product WHERE category_id=?'); 
         $stmt->execute(array($id_category)); 
         return $stmt->fetchAll();
     }

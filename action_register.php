@@ -62,7 +62,6 @@
   }
 
   try {
-    //$lastUserid = getLastUser ()['id_customer']+1;
     insertUser($name, $phone_number, $email,  $address, $city, $password, $vat_num, $role); 
     $_SESSION["msg2"] = "Registration Successful!";
     header('Location: customer_init.php');

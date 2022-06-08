@@ -1,52 +1,43 @@
 <?php
-    session_start();
-    
-    require('database/conection.php');
-    require('database/category.php'); 
-    require('database/product.php');
-    //require('database/suplier.php');
+  session_start();
+  
+  require('database/conection.php');
+  //require('database/category.php'); 
+  //require('database/product.php');
+  //require('database/suplier.php');
 
-    $name = $_GET["name"];
+  $id_suplier = $_GET["Supplier Select"];
+  $id_brand = $_GET["Brand Select"];
+  
+  if($id_suplier=="none" && $id_brand=="none"){
+    $stmt = $dbh->prepare('SELECT * FROM Product'); 
+    $stmt->execute(); 
+    $result_ = $stmt->fetchAll();
+  }
+  elseif ($id_suplier=="none"){
+    $stmt = $dbh->prepare('SELECT * FROM Product WHERE brand_id=?'); 
+    $stmt->execute(array($id_brand)); 
+    $result_ = $stmt->fetchAll();
+  }
+  elseif ($id_brand=="none"){
+    $stmt = $dbh->prepare('SELECT * FROM Product 
+                            JOIN SupProduct 
+                            ON Product.id_product = SupProduct.product_id 
+                            WHERE SupProduct.suplier_id = ?');
+    $stmt->execute(array($id_suplier)); 
+    $result_ = $stmt->fetchAll();
+  }
+  else {
+    $stmt = $dbh->prepare('SELECT * FROM Product 
+                            JOIN SupProduct 
+                            ON Product.id_product = SupProduct.product_id 
+                            WHERE SupProduct.suplier_id = ? 
+                            AND Product.brand_id = ?');
+                            
+    $stmt->execute(array($id_suplier, $id_brand)); 
+    $result_ = $stmt->fetchAll();
+  }
 
-    function getSuplier(){
-        global $dbh;
-        $stmt = $dbh->prepare('SELECT * FROM Suplier'); 
-        $stmt->execute(); 
-        return $stmt->fetchAll();
-      }
+  $_SESSION["session_products"] = $result_; 
     
-      $supliers = getSuplier();
-    
-      $id_suplier= $_GET['id_suplier'];
-    
-      function getSuplierById($id_suplier) {  
-        global $dbh;
-        $stmt = $dbh->prepare('SELECT * FROM Suplier WHERE id_suplier=?'); 
-        $stmt->execute(array($id_suplier)); 
-        return $stmt->fetch();
-      }
-    
-      $suplier = getSuplierById($id_suplier);
-
-        #se botao isset x queri de produtos x
-    //     if (loginIsValid($email, $password)) {
-    //         global $result;
-    //         $_SESSION["email"] = $email;//-criar sessao para o user
-    //         if ($result["role"] == "cust") { 
-    //             $_SESSION["role"] = $result["role"]; //cria sessao
-    //             header("Location: customer_init.php");
-    //             exit();
-    //         } 
-    //         else 
-    //         {
-    //             $_SESSION["role"] = $result["role"]; //cria sessao
-    //             header("Location: employee_init.php"); 
-    //             exit();
-    //         }     
-    //     }     
-    //     else {
-    //         $_SESSION["msg3"] = "Login failed!";//-set error msg:"Login Failed!"
-    //     }
-        
-    //     header("Location: Login.php");//-redirecionar para o login
 ?>
