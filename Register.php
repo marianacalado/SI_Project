@@ -2,7 +2,7 @@
   session_start();
   require('database/conection.php');
 
-  $msg= $SESSION ["msg"];
+  $msg1= $SESSION ["msg1"];
 ?>
 
 <!DOCTYPE html>
@@ -71,8 +71,8 @@
 
                 </form> 
 
-                <?php if (isset($msg)) { ?>
-                    <p class = "msg"><?php echo $msg ?></p>  
+                <?php if (isset($msg1)) { ?>
+                    <p class = "msg"><?php echo $msg1 ?></p>  
                 <?php } ?>
 
             </div>

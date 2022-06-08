@@ -1,28 +1,17 @@
 <?php 
-  // session_start();
-  // require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
-  // require('database/category.php'); 
-  // require('database/product.php');
+  session_start();
+  require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
+  require('database/category.php'); 
+  require('database/product.php');
 
-  // $id_category= $_GET['id_category'];
+  $categories = getCategory();
+  
+  $id_category= $_GET['id_category'];
 
-  // fuction getCategoryById($id_category) { //esta função vai a tabela das categorias logo por nas categorias 
-  //     global $dbh;
-  //     $stmt = $dbh->prepare('SELECT * FROM Category WHERE id_category=?'); 
-  //     $stmt->execute(array($id_category)); //executa da erro 
-  //     return $stmt->fetch()
-  // }
+  $category = getCategoryById($id_category);
 
-  // $category = getCategoryById($id_category);
+  $products= getProductsByCategoryId($id_category);
 
-  // fuction getProductsByCategoryId($id_category) { //por no file de products
-  //     global $dbh;
-  //     $stmt = $dbh->prepare('SELECT * FROM Product WHERE category_id=?'); //seleciona todos os produtos de uma determinada categoria 
-  //     $stmt->execute(array($id_category)); 
-  //     return $stmt->fetchAll()$products
-  // }
-
-  // $products= getProductsByCategoryId($id_category);
 ?>
 
 <!DOCTYPE html>
@@ -41,25 +30,14 @@
     <?php include('./template/header2_tem.php');?>
     <div>
         <nav id="menu">
-            <ul>
-              <!-- <?php foreach ($categories as $row) { ?>
-                <li>
-                  <a href="list_products.php?id_category="><?php echo $row["id"] ?></a>
-                </li>
-              <?php }?> vai substituir a lista de categorias em html  -->
-              <li class="sidebar-title">Medicines subject to medical prescription</li>
-              <li class="categorias"><a href="./NewOrder.php">Register Prescription</a></li>
-              <li class="sidebar-title">Medicines not subject to medical prescription</li>
-              <li class="categorias"><a href="./list_products.php">Beauty & Hygiene</a></li>
-              <li class="categorias"><a href="./list_products.php">Personal Care</a></li>
-              <li class="categorias"><a href="./list_products.php">Medicines</a></li>
-              <li class="categorias"><a href="./list_products.php">Food Suplements & Nutricion</a></li>
-              <li class="categorias"><a href="./list_products.php">Contraception & Intimate Products</a></li>
-              <li class="categorias"><a href="./list_products.php">Covid-19</a></li>
-              <li class="categorias"><a href="./list_products.php">Medical Equipment</a></li>
-              <li class="categorias"><a href="./list_products.php">Animal Care</a></li>
-              <li class="categorias"><a href="./list_products.php">Orthopedic Products</a></li>
-            </ul>
+          <ul>
+            <li class="sidebar-title">Medicines subject to medical prescription</li>
+            <li class="current"><a href="./NewOrder.php">Register Prescription</a></li>
+            <li class="sidebar-title">Medicines not subject to medical prescription</li>
+            <?php foreach ($categories as $row) { ?>
+              <li class="categorias"><a href="list_products.php?id_category=<?php echo $row["id_category"]?>"><?php echo $row["name"]?></a></li>
+            <?php }?> 
+          </ul>
         </nav>
         <section class="main-container">
             <header>
@@ -98,27 +76,25 @@
               </div>
               <table>
                 <th>Image</th>
-                <th>Supplier</th>
-                <th>Product</th>
-                <th>Brand</th>
+                <th>ProductId</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>Quantity</th>
-
+                <th>Quantity</th><!-- temos de ver isto com o carrinho  -->
                 <th></th>
-                <!-- Começa aqui o loop do php -->
                 <tr>
-                  <td>w</td>
-                  <td>w</td>
-                  <td>w</td>
-                  <td>w</td>
-                  <td>w</td>
-                  <td>w</td>
-                  <td><input type="number"/></td>
-                  <td><button>Add</button></td>
+                  <?php foreach ($products as $row) { ?> 
+                    <td>
+                      <p><?php echo $row["name"] ?></p>
+                      <img src="<?php echo $row['image_path']?>" alt= "image_product"> 
+                    </td>
+                    <td><p><?php echo $row["id_product"] ?></p></td>
+                    <td><p><?php echo $row["description"] ?></p></td>
+                    <td><span class="price">€<?php echo $row["unit_price"]?></span></td>
+                    <td>Tirrar isto </td>
+                    <td><input type="number"/></td>
+                    <td><button>Add</button></td>
+                  <?php }?> 
                 </tr>
-
-                <!-- Acaba aqui -->
               </table>
             </section>
         </section>

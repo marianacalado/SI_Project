@@ -64,25 +64,25 @@
   try {
     //$lastUserid = getLastUser ()['id_customer']+1;
     insertUser($name, $phone_number, $email,  $address, $city, $password, $vat_num, $role); 
-    $_SESSION["msg"] = "Registration Successful!";
+    $_SESSION["msg2"] = "Registration Successful!";
     header('Location: customer_init.php');
   } catch(PDOException $e) {
     $err_msg = $e->getMessage();
 
     if (strpos($err_msg, "Customer.email")==true) {
-      $_SESSION["msg"] = "This email already exists!";
+      $_SESSION["msg1"] = "This email already exists!";
       die(header('Location: register.php'));
     }
     if (strpos($err_msg, "Customer.phone_num")==true) {
-      $_SESSION["msg"] = "This phone number already exists!";
+      $_SESSION["msg1"] = "This phone number already exists!";
       die(header('Location: register.php'));
     }
     if (strpos($err_msg, "Customer.VAT_num")==true) {
-      $_SESSION["msg"] = "This VAT number already exists!";
+      $_SESSION["msg1"] = "This VAT number already exists!";
       die(header('Location: register.php'));
     }   
     else {
-      $_SESSION["msg"] = "Registration failed! ($err_msg)";
+      $_SESSION["msg1"] = "Registration failed! ($err_msg)";
       die(header('Location: register.php'));
     }
   }

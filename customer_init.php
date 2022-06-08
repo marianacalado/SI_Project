@@ -6,6 +6,8 @@
 
   $customer = getCustomerByEmail();
 
+  $msg2= $SESSION ["msg2"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -21,6 +23,7 @@
 
   <body>
     <?php include('./template/header2_tem.php');?>
+    <p><?php echo $msg2?></p>
     <div class="grid-container">
       <section>
         <section class="upper-left">

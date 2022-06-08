@@ -11,6 +11,8 @@
     } 
   }
 
+  $msg3=$_SESSION["msg3"]
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +29,7 @@
   <body>
     <header>
       <a href="./init_page.php"><img alt="Logo" src="./assets/Logo_white.png"/></a>
+      <p><?php echo $msg3?></p>
     </header>
     <div class = "section1">
       <article>

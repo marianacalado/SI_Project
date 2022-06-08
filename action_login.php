@@ -26,7 +26,7 @@
         }     
     }     
     else {
-        $_SESSION["msg"] = "Login failed!";//-set error msg:"Login Failed!"
+        $_SESSION["msg3"] = "Login failed!";//-set error msg:"Login Failed!"
     }
     
     header("Location: Login.php");//-redirecionar para o login

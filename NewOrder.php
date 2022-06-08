@@ -1,8 +1,12 @@
 <?php
   session_start();
   require('database/conection.php');
+  require('database/category.php');
+  require('database/product.php');
 
-  $msg= $SESSION ["msg"];   
+  $categories = getCategory();
+  // $id_category= $_GET['id_category'];
+  
 ?>
 
 <!DOCTYPE html>
@@ -22,23 +26,12 @@
     <div>
         <nav id="menu">
           <ul>
-            <!-- <?php foreach ($categories as $row) { ?>
-              <li>
-                <a href="list_products.html?id_category="><?php echo $row["id"] ?></a>
-              </li>
-            <?php }?> vai substituir a lista de categorias em html  -->
-              <li class="sidebar-title">Medicines subject to medical prescription</li>
-              <li class="current">Register Prescription</li>
-              <li class="sidebar-title">Medicines not subject to medical prescription</li>
-              <li class="categorias"><a href="./list_products.php">Beauty & Hygiene</a></li>
-              <li class="categorias"><a href="./list_products.php">Personal Care</a></li>
-              <li class="categorias"><a href="./list_products.php">Medicines</a></li>
-              <li class="categorias"><a href="./list_products.php">Food Suplements & Nutricion</a></li>
-              <li class="categorias"><a href="./list_products.php">Contraception & Intimate Products</a></li>
-              <li class="categorias"><a href="./list_products.php">Covid-19</a></li>
-              <li class="categorias"><a href="./list_products.php">Medical Equipment</a></li>
-              <li class="categorias"><a href="./list_products.php">Animal Care</a></li>
-              <li class="categorias"><a href="./list_products.php">Orthopedic Products</a></li>
+            <li class="sidebar-title">Medicines subject to medical prescription</li>
+            <li class="current">Register Prescription</li>
+            <li class="sidebar-title">Medicines not subject to medical prescription</li>
+            <?php foreach ($categories as $row) { ?>
+              <li class="categorias"><a href="list_products.php?id_category=<?php echo $row["id_category"]?>"><?php echo $row["name"] ?></a></li>
+            <?php }?> 
           </ul>
         </nav>
         <section class="main-container">
@@ -60,9 +53,6 @@
               <button>Register</button>
 
             </form>
-            <?php if (isset($msg)) { ?>
-              <p class = "msg"><?php echo $msg ?></p>  
-            <?php } ?>
           </section>
         </section>
     </div>
