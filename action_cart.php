@@ -14,7 +14,7 @@
       "quantity"=>$_GET["quantity"]
     );
 
-   $new_product_id = $_GET["id_product"] = $new_product;
+   $new_product_id = $_GET["id_product"];
 
 
   var_dump($_SESSION["cart"]);

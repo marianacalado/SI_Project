@@ -1,7 +1,10 @@
 <?php
   session_start();
 
-  require('database/conection.php'); 
+  require('database/conection.php');
+  require('database/customer_emp.php');
+
+  $customer = getCustomerByEmail();
 
 ?>
 
@@ -33,15 +36,11 @@
         <header><h3>Personal Information</h3></header>
         <article>
           <ul>
-            <li>
-              <b>Name</b>
-              <span>asdasdas</span>
-            </li>
-            <li><b>Email</b> <span>dqwdqwd@fww.com</span></li>
-            <li><b>Phone Number</b> <span>99999999999</span></li>
-
-            <li><b>Address</b> <span>street ewqeqwewq</span></li>
-            <li><b>Nif</b> <span>12313123</span></li>
+            <li><b>Name</b><span><?php echo $customer['name']?></span></li>
+            <li><b>Email</b> <span><?php echo $customer['e_mail']?></span></li>
+            <li><b>Phone Number</b> <span><?php echo $customer['phone_num']?></span></li>
+            <li><b>Address</b> <span><?php echo $customer['address']?></span></li>
+            <li><b>VAT Number</b> <span><?php echo $customer['VAT_num']?></span></li>
           </ul>
         </article>
       </section>
