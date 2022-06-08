@@ -3,6 +3,7 @@
   require('database/conection.php');//eu preciso de por isto se ja estiver dentro do ficheiro action?
   require('database/category.php'); 
   require('database/product.php');
+  //require('database/suplier.php');
 
   $categories = getCategory();
   
@@ -46,6 +47,8 @@
             <section >
               <h3>Filter by</h3>
               <div class='select-container'>
+
+              <form id="Submit filter" action="action_filter.php">
                 <select>
                   <option>---Supplier---</option>
                   <option>Alconox</option>
@@ -53,7 +56,7 @@
                   <option>Celitron</option>
                   <option>Drugsales</option>
                   <option>Estima Pharma Solutions</option>
-                  <option>GE Healthcare Life Sciences</option>
+                  <option>GE Healthcare Life Sciences</option> 
                 </select>
                 <select>
                   <option>---Brand---</option>
@@ -73,6 +76,10 @@
                   <option>Durex</option>
                   <option>Race</option>
                 </select>
+                <input type="submit" value="Submit filter">
+              </form>
+              
+              
               </div>
               <table>
                 <th>Image</th>
@@ -90,9 +97,12 @@
                     <td><p><?php echo $row["id_product"] ?></p></td>
                     <td><p><?php echo $row["description"] ?></p></td>
                     <td><span class="price">€<?php echo $row["unit_price"]?></span></td>
-                    <td>Tirrar isto </td>
-                    <td><input type="number"/></td>
-                    <td><button>Add</button></td>
+                    <td>
+                      <form action="action_cart">
+                        <input type="number" value= "1" min=1>
+                        <input type="submit" value= "Add to cart">
+                      </form>
+                    </td>
                   <?php }?> 
                 </tr>
               </table>
